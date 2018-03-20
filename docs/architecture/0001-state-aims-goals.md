@@ -1,9 +1,10 @@
 # 1. State project Aims/Goals
 
-Date: 2017-03-16
-Author: Zach Smith
-Revision: 0.0
-Contributors: Jason Young, Sheldon Morris, David Mote
+**Date:** 2017-03-16<br>
+<br>
+**Author:** Zach Smith <br>
+**Revision:** 0.1 <br>
+**Contributors:** Jason Young, Sheldon Morris, David Mote <br>
 
 ## Status
 
@@ -42,7 +43,7 @@ explore the feasibility of these goals.
 
 With all of this in mind the following requirements are proposed
 
-Requirements:
+**Requirements:**
 1) Completed before study launch
 2) Web based
 3) Title 21 CFR Part-11 Compliant
@@ -54,44 +55,44 @@ Requirements:
 
 ## Decisions
 
-License: MIT
+**License:** MIT
 
-Tech Stack:
+**Tech Stack:**
 
-Backend: Django REST Framework (http://www.django-rest-framework.org/) BSD License
-Frontend: React (https://reactjs.org/) MIT License
-API language: GraphQL (https://graphql.org/) MIT License
-Database: Postgresql (https://www.postgresql.org/) PostgreSQL License (BSD/MIT-like)
-State Management: TBD
+* **Backend:** Django REST Framework (http://www.django-rest-framework.org/) BSD License
+* **Frontend:** React (https://reactjs.org/) MIT License
+* **API language:** GraphQL (https://graphql.org/) MIT License
+* **Database:** Postgresql (https://www.postgresql.org/) PostgreSQL License (BSD/MIT-like)
+* **State Management:** TBD
 
 Backend Development Stack:
-Docker: MIT/BSD/Apache 2.0
+* **Docker:** MIT/BSD/Apache 2.0
 
 ## Rationale
 
-License: The ultimate aim for the project is to provide a cheap/free open source
+**License:** The ultimate aim for the project is to provide a cheap/free open source
 solution that does not prohibit commerical use. MIT and BSD licenses allow
 permissive (code can be edited/modified) use to the end user.
 
-Backend/Front end segregation: By creating seperate spaces for frontend and
+**Backend/Front end segregation:** By creating seperate spaces for frontend and
 backend develop and well defined APIs between the two, each component can
 theoretically be replaced should a better alternative present itself
 
-Backend: A few prospective clients already utilize Django REST Framework
+**Backend:** A few prospective clients already utilize Django REST Framework
 Additionally Django REST has extensive documentation and community support as
 well as several batteries included features (Authentication/Permissions) which
 will speed up development.
 
-Frontend: React is a major winner in the javascript front end space.
+**Frontend:** React is a major winner in the javascript front end space.
 It contains a small and flexible API that critically self-contained to the view
 
-GraphQL: Unlike other REST API solutions, GraphQL provides only the isolated
+**GraphQL:** Unlike other REST API solutions, GraphQL provides only the isolated
 portions of data that are requested. It will be critical to isolate
 interactions between the backend and frontend to a minimal footprint so that
 risk assessments have reduced in scope, increased transparency and are easier to
 execute.
 
-Docker: Docker will allow for backend development without physical hardware
+**Docker:** Docker will allow for backend development without physical hardware
 beyond a typical laptop. Production deployment will not be executed with docker
 however, the option will be available.
 
