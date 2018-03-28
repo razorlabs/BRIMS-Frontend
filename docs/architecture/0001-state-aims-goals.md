@@ -1,9 +1,9 @@
 # 1. State project Aims/Goals
 
-**Date:** 2017-03-16<br>
+**Date:** 2018-03-16<br>
 <br>
 **Author:** Zach Smith <br>
-**Revision:** 0.1 <br>
+**Revision:** 0.2 <br>
 **Contributors:** Jason Young, Sheldon Morris, David Mote <br>
 
 ## Status
