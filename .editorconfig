@@ -1,0 +1,26 @@
+# EditorConfig enforces unified file format settings
+# See http://EditorConfig.org for more information
+
+# This file covers Make, javascript, python, json and html files
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+charset = utf-8
+
+# follows air-bnb lint guideliens
+[*.js]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+insert_final_newline = ignore
+
+# Do not remove whitespace from markdown files
+[*.md]
+trim_trailing_whitespace = false
