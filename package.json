@@ -7,13 +7,15 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --config ./webpack.config.dev.js --mode development",
+    "start": "npm-run-all --parallel security test devserver open:index",
+    "devserver": "webpack-dev-server --inline --hot --config ./webpack.config.dev.js --mode development",
     "test": "echo \"Test framework to be specified\"",
     "clean-dist": "rimraf ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint security",
     "security": "nsp check",
     "extra-security": "retire --severity medium",
-    "start-mockapi": "json-server --watch src/api/db.json --port 3002"
+    "start-mockapi": "json-server --watch src/api/db.json --port 3002",
+    "open:index": "open http://localhost:8080"
   },
   "repository": {
     "type": "git",
@@ -40,9 +42,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "json-server": "^0.12.1",
+    "npm-run-all": "^4.1.2",
     "nsp": "^3.2.1",
     "open": "0.0.5",
-    "react-hot-loader": "^5.0.1",
+    "react-hot-loader": "^4.0.1",
     "retire": "^1.6.0",
     "style-loader": "^0.20.3",
     "webpack": "^4.4.1",
