@@ -4,14 +4,14 @@ const webpack = require('webpack');
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    './src/index.js'
+    './src/index.js',
   ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.js$/,
@@ -19,28 +19,28 @@ module.exports = {
         use: [
           'babel-loader',
           'eslint-loader',
-        ]
+        ],
       },
 
       {
         test: /\.css$/,
-        loader: 'style!css'
-      }
-    ]
+        loader: 'style!css',
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: './src',
-    hot: true
-  }
+    hot: true,
+  },
 };
