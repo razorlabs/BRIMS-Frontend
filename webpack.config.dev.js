@@ -57,8 +57,6 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    // hot refresh
-    new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     contentBase: './src',
