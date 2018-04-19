@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, Container, Card, Icon } from 'semantic-ui-react';
+import Header from './Components/Layout/Header';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,17 +55,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Menu size="large" color="blue" inverted >
-          <Menu.Item name="LIMS" active={activeItem === 'LIMS'} onClick={this.handleItemClick} />
-          <Menu.Menu position="right">
-            <Menu.Item name="cog" active={activeItem === 'cog'} onClick={this.handleItemClick}>
-              <Icon name="cogs" />
-            </Menu.Item>
-            <Menu.Item name="name" active={activeItem === 'name'} onClick={this.handleItemClick} />
-            <Menu.Item name="logout" active={activeItem === 'logout'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu>
-
+        <Header />
         <Container>
           <Card.Group centered itemsPerRow={3} items={items} />
         </Container>
