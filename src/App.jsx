@@ -66,7 +66,7 @@ class App extends React.Component {
         </Menu>
 
         <Container>
-          <Card.Group raised centered itemsPerRow={3} items={items} />
+          <Card.Group centered itemsPerRow={3} items={items} />
         </Container>
       </div>
     );
