@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import { Container, Card, Icon } from 'semantic-ui-react';
 
 export default class LandingPage extends React.Component {
@@ -37,9 +38,12 @@ export default class LandingPage extends React.Component {
     ];
 
     return (
-      <Container>
-        <Card.Group centered itemsPerRow={3} items={items} />
-      </Container>
+      <div>
+        <Header />
+        <Container>
+          <Card.Group centered itemsPerRow={3} items={items} />
+        </Container>
+      </div>
     );
   }
 }

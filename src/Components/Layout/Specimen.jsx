@@ -67,8 +67,8 @@ export default class Specimen extends React.Component {
 
     return (
       <div>
-      <Header />
-      <Container>
+        <Header />
+        <Container>
           <Segment padded>
             <Label size="large" attached="top left">Patient Info Pane</Label>
             <Container>
@@ -127,7 +127,7 @@ export default class Specimen extends React.Component {
             </Segment>
           </Segment.Group>
         </Container>
-        </div>
+      </div>
     );
   }
 }
