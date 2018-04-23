@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Container, Card, Icon } from 'semantic-ui-react';
+import { Menu, Container, Card, Icon, Search } from 'semantic-ui-react';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -22,6 +22,9 @@ export default class Header extends React.Component {
           active={this.state.activeItem === 'LIMS'}
           onClick={this.handleActive}
         />
+        <Menu.Item>
+          <Search size="small" placeholder="Search" />
+        </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item /* The setup icon */
             name="cog"
