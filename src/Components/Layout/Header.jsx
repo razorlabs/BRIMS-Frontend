@@ -1,15 +1,16 @@
 import React from 'react';
-import { Menu, Container, Card, Icon, Search } from 'semantic-ui-react';
+import { Menu, Icon, Search } from 'semantic-ui-react';
 
 export default class Header extends React.Component {
   constructor(props) {
+    /* Place holder */
     super(props);
     this.state = {
       activeItem: 'LIMS',
     };
   }
 
-  // Needs fixing
+  // Place holder
   handleActive(e, { name }) {
     this.setState({ activeItem: name });
   }
@@ -22,7 +23,7 @@ export default class Header extends React.Component {
           active={this.state.activeItem === 'LIMS'}
           onClick={this.handleActive}
         />
-        <Menu.Item>
+        <Menu.Item /* The search bar here is a bit cluttered/redundant with query section */>
           <Search size="small" placeholder="Search" />
         </Menu.Item>
         <Menu.Menu position="right">
@@ -33,7 +34,7 @@ export default class Header extends React.Component {
           >
             <Icon name="cogs" />
           </Menu.Item>
-          <Menu.Item
+          <Menu.Item /* Place holder for active user name */
             name="name"
             active={this.state.activeItem === 'name'}
             onClick={this.handleActive}
