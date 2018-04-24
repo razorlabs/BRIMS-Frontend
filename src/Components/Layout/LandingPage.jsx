@@ -1,6 +1,6 @@
+import { Container, Card, Icon } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
-import { Container, Card, Icon } from 'semantic-ui-react';
 
 export default class LandingPage extends React.Component {
   render() {
