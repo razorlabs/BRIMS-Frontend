@@ -107,16 +107,6 @@ export default class Specimen extends React.Component {
                     </List.Item>
                   </List>
                 </Segment>
-                <Segment >
-                  <Button.Group attached="right top">
-                    <Button color="green">Wk 0</Button>
-                    <Button color="green">Wk 4</Button>
-                    <Button color="grey">Wk 8</Button>
-                    <Button color="grey">Wk 12</Button>
-                    <Button color="grey">Wk 16</Button>
-                    <Button color="grey">Wk 24</Button>
-                  </Button.Group>
-                </Segment>
               </Segment.Group>
             </Container>
           </Segment>
