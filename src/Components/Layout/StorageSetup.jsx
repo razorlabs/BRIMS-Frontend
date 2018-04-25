@@ -46,12 +46,12 @@ export default class StorageSetup extends React.Component {
     return (
       <div>
         <Header />
-        <Segment vertical clearing="true">
+        <Segment vertical clearing>
           <Button> Manage Storage </Button>
         </Segment>
         <Container>
           <Segment>
-            <List divided="true">
+            <List divided>
               <List.Item>
                 <List.Icon name="snowflake outline" />
                 <List.Content>
@@ -59,24 +59,26 @@ export default class StorageSetup extends React.Component {
                   <List.Description>TSX Series AB31</List.Description>
                   <List.List>
                     <List.Item>
-                      <List.Icon name="dropbox" />
-                      <List.Content>
-                        <List.Header>Box CCTG_001 </List.Header>
-                        <List.Description>Dry Blood Spot Storage Box </List.Description>
-                        <List.Item>
-                          <BoxGrid />
-                        </List.Item>
-                      </List.Content>
+                      <Segment>
+                        <List.Content>
+                          <List.Header><List.Icon name="dropbox" /> Box CCTG_001 </List.Header>
+                          <List.Description>Dry Blood Spot Storage Box </List.Description>
+                          <List.Item>
+                            <BoxGrid />
+                          </List.Item>
+                        </List.Content>
+                      </Segment>
                     </List.Item>
                     <List.Item>
-                      <List.Icon name="dropbox" />
-                      <List.Content>
-                        <List.Header>Box CCTG_002 </List.Header>
-                        <List.Description>Dry Blood Spot Storage Box </List.Description>
-                        <List.Item>
-                          <BoxGrid />
-                        </List.Item>
-                      </List.Content>
+                      <Segment>
+                        <List.Content>
+                          <List.Header><List.Icon name="dropbox" /> Box CCTG_002 </List.Header>
+                          <List.Description>Dry Blood Spot Storage Box </List.Description>
+                          <List.Item>
+                            <BoxGrid />
+                          </List.Item>
+                        </List.Content>
+                      </Segment>
                     </List.Item>
                   </List.List>
                 </List.Content>
