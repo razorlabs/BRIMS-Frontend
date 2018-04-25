@@ -10,44 +10,44 @@ export default class Specimen extends React.Component {
     const TableSegment = () => {
       return (
         <div>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Aliquot ID</Table.HeaderCell>
-              <Table.HeaderCell>Visit</Table.HeaderCell>
-              <Table.HeaderCell>Collect Time</Table.HeaderCell>
-              <Table.HeaderCell>Storage</Table.HeaderCell>
-              <Table.HeaderCell>Notes</Table.HeaderCell>
-              <Table.HeaderCell>Print Labels</Table.HeaderCell>
-              <Table.HeaderCell>Ship</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>
-                1
-              </Table.Cell>
-              <Table.Cell>
-                Week 4
-              </Table.Cell>
-              <Table.Cell>
-                2018-04-04 22:04
-              </Table.Cell>
-              <Table.Cell textAlign="center">
-                <Button size="large" icon="dropbox" />
-              </Table.Cell>
-              <Table.Cell>
-                This is an example of an aliquot from a base specimen
-              </Table.Cell>
-              <Table.Cell>
-                <Button size="large" icon="print" />
-              </Table.Cell>
-              <Table.Cell>
-                <Button size="large" icon="shipping" />
-              </Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Aliquot ID</Table.HeaderCell>
+                <Table.HeaderCell>Visit</Table.HeaderCell>
+                <Table.HeaderCell>Collect Time</Table.HeaderCell>
+                <Table.HeaderCell>Storage</Table.HeaderCell>
+                <Table.HeaderCell>Notes</Table.HeaderCell>
+                <Table.HeaderCell>Print Labels</Table.HeaderCell>
+                <Table.HeaderCell>Ship</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>
+                  1
+                </Table.Cell>
+                <Table.Cell>
+                  Week 4
+                </Table.Cell>
+                <Table.Cell>
+                  2018-04-04 22:04
+                </Table.Cell>
+                <Table.Cell textAlign="center">
+                  <Button size="large" icon="dropbox" />
+                </Table.Cell>
+                <Table.Cell>
+                  This is an example of an aliquot from a base specimen
+                </Table.Cell>
+                <Table.Cell>
+                  <Button size="large" icon="print" />
+                </Table.Cell>
+                <Table.Cell>
+                  <Button size="large" icon="shipping" />
+                </Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
         </div>
       );
     };
@@ -112,6 +112,7 @@ export default class Specimen extends React.Component {
           </Segment>
           <Segment.Group>
             <Segment padded>
+              <Button floated="right"> Add Specimen </Button>
               <Label size="large" attached="top left">Specimen</Label>
               <Tab panes={panes} renderActiveOnly={false} />
             </Segment>
