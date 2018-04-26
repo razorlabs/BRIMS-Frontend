@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Icon, Search } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ export default class Header extends React.Component {
       <Menu size="large" color="blue" inverted >
         <Menu.Item
           name="LIMS"
-          active={this.state.activeItem === 'LIMS'}
-          onClick={this.handleActive}
+          as={Link}
+          to="/"
         />
         <Menu.Item /* The search bar here is a bit cluttered/redundant with query section */>
           <Search size="small" placeholder="Search" />
