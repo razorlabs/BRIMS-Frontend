@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Components/Layout/Header';
 import LandingPage from './Components/Layout/LandingPage';
 import Specimen from './Components/Layout/Specimen';
