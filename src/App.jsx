@@ -8,6 +8,7 @@ import Shipping from './Components/Layout/Shipping';
 import PatientScheduling from './Components/Layout/PatientScheduling';
 import Query from './Components/Layout/Query';
 import StorageSetup from './Components/Layout/StorageSetup';
+import ActionItems from './Components/Layout/ActionItems';
 
 class App extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Route path="/schedule" component={PatientScheduling} />
           <Route path="/query" component={Query} />
           <Route path="/storage" component={StorageSetup} />
+          <Route path="/action" component={ActionItems} />
         </div>
       </BrowserRouter>
     );
