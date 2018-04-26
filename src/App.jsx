@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import Header from './Components/Layout/Header';
 import LandingPage from './Components/Layout/LandingPage';
 import Specimen from './Components/Layout/Specimen';
@@ -11,25 +12,16 @@ import StorageSetup from './Components/Layout/StorageSetup';
 class App extends React.Component {
   render() {
     return (
-      <div>
-        {/*
-         <LandingPage />
-        */}
-        {/*
-         <Specimen />
-        */}
-        {/*
-        <Shipping />
-        */}
-        {/*
-        <PatientScheduling />
-        */}
-        {/*
-        <Query />
-        */}
-        <StorageSetup />
-
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/specimen" component={Specimen} />
+          <Route path="/shipping" component={Shipping} />
+          <Route path="/schedule" component={PatientScheduling} />
+          <Route path="/query" component={Query} />
+          <Route path="/storage" component={StorageSetup} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
