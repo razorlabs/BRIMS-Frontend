@@ -1,11 +1,11 @@
-import { Segment, Label, Container, Icon, Tab, Table, Button, List } from 'semantic-ui-react';
+import { Segment, Label, Container, Icon, Tab, Table, Button, List, Modal, MountNode } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
+import SpecimenModal from './SpecimenModal';
 
 export default class Specimen extends React.Component {
   // The Specimen view needs a locked-visual indicator with aliquot to denote the association
   // (tabs for this example)
-
   render() {
     const TableSegment = () => {
       return (
@@ -112,7 +112,7 @@ export default class Specimen extends React.Component {
           </Segment>
           <Segment.Group>
             <Segment padded>
-              <Button floated="right"> Add Specimen </Button>
+              <SpecimenModal />
               <Label size="large" attached="top left">Specimen</Label>
               <Tab panes={panes} renderActiveOnly={false} />
             </Segment>
