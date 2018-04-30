@@ -1,4 +1,4 @@
-import { Dropdown, Modal, Button } from 'semantic-ui-react';
+import { Segment, Dropdown, Modal, Button } from 'semantic-ui-react';
 import React from 'react';
 
 const specimenTypes = [
@@ -9,7 +9,7 @@ const specimenTypes = [
 ];
 
 const SpecimenModal = () => (
-  <Modal trigger={<Button floated="right" color="blue">Add Specimen</Button>}>
+  <Modal trigger={<Button attached floated="right" color="blue">Add Specimen</Button>}>
     <Modal.Header>Add Specimen</Modal.Header>
     <Modal.Content>
       <Dropdown placeholder="Specimen" multiple selection options={specimenTypes} />
