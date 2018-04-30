@@ -1,25 +1,95 @@
-import { Button, Container, Menu, Label, Segment, Tab } from 'semantic-ui-react';
+import { Checkbox, Button, Container, Menu, Label, Segment, Tab, Table } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 
-// This view is going to require more though to be truely user friendly
-// The following is a simple conceptual rough draft.
-
-
-//Pending Shipment Tab
 class PendingShipment extends React.Component {
   render() {
     return (
       <Tab.Pane>
-        <Segment>
-          Pending Shipment
-        </Segment>
+        <Table>
+          <Table.Row>
+            <Table.HeaderCell>Item</Table.HeaderCell>
+            <Table.HeaderCell>Ship From</Table.HeaderCell>
+            <Table.HeaderCell>Ship To</Table.HeaderCell>
+            <Table.HeaderCell>Send Date</Table.HeaderCell>
+            <Table.HeaderCell>Recipient</Table.HeaderCell>
+            <Table.HeaderCell>Notes</Table.HeaderCell>
+          </Table.Row>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>224-4fb Blood Plasma</Table.Cell>
+              <Table.Cell>AVRC</Table.Cell>
+              <Table.Cell>Moon</Table.Cell>
+              <Table.Cell>2018-02-06</Table.Cell>
+              <Table.Cell>Buzz Aldrin</Table.Cell>
+              <Table.Cell>Radioactive handle with care</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>223-4fb Blood Plasma</Table.Cell>
+              <Table.Cell>AVRC</Table.Cell>
+              <Table.Cell>Moon</Table.Cell>
+              <Table.Cell>2018-02-06</Table.Cell>
+              <Table.Cell>Buzz Aldrin</Table.Cell>
+              <Table.Cell>Radioactive handle with care</Table.Cell>
+            </Table.Row>
+
+          </Table.Body>
+        </Table>
         <Button> Create Manifest </Button>
       </Tab.Pane>
     );
   }
 }
 
+class PendingRecieving extends React.Component {
+  render() {
+    return (
+      <Tab.Pane>
+        <Table>
+          <Table.Row>
+            <Table.HeaderCell>Item</Table.HeaderCell>
+            <Table.HeaderCell>Ship From</Table.HeaderCell>
+            <Table.HeaderCell>Ship To</Table.HeaderCell>
+            <Table.HeaderCell>Send Date</Table.HeaderCell>
+            <Table.HeaderCell>Recipient</Table.HeaderCell>
+            <Table.HeaderCell>Notes</Table.HeaderCell>
+            <Table.HeaderCell>Received?</Table.HeaderCell>
+          </Table.Row>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>225-442</Table.Cell>
+              <Table.Cell>Moon</Table.Cell>
+              <Table.Cell>AVRC</Table.Cell>
+              <Table.Cell>2018-02-06</Table.Cell>
+              <Table.Cell>Rebecca</Table.Cell>
+              <Table.Cell>Do not shake</Table.Cell>
+              <Table.Cell><Checkbox /></Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>228-43b</Table.Cell>
+              <Table.Cell>Moon</Table.Cell>
+              <Table.Cell>AVRC</Table.Cell>
+              <Table.Cell>2018-02-06</Table.Cell>
+              <Table.Cell>Deedee</Table.Cell>
+              <Table.Cell>Do not shake</Table.Cell>
+              <Table.Cell><Checkbox /></Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>228-43b</Table.Cell>
+              <Table.Cell>Moon</Table.Cell>
+              <Table.Cell>AVRC</Table.Cell>
+              <Table.Cell>2018-02-06</Table.Cell>
+              <Table.Cell>Deedee</Table.Cell>
+              <Table.Cell>Do not shake</Table.Cell>
+              <Table.Cell><Checkbox /></Table.Cell>
+            </Table.Row>
+
+          </Table.Body>
+        </Table>
+      </Tab.Pane>
+    );
+  }
+}
 
 export default class Shipping extends React.Component {
 
@@ -31,8 +101,8 @@ export default class Shipping extends React.Component {
         render: () => <PendingShipment />,
       },
       {
-        menuItem: <Menu.Item key="Pending_Recieving">Pending Recieving<Label circular color="blue" >8</Label></Menu.Item>,
-        render: () => <Tab.Pane>Pending Recieving</Tab.Pane>,
+        menuItem: <Menu.Item key="Pending_Recieving">Pending Recieving<Label circular color="blue" >3</Label></Menu.Item>,
+        render: () => <PendingRecieving />,
       },
       {
         menuItem: <Menu.Item key="Shipping_History">Shipping History</Menu.Item>,
@@ -43,14 +113,16 @@ export default class Shipping extends React.Component {
     return (
       <div>
         <Header />
-        <Segment.Group>
-          <Segment vertical clearing="true">
-            <Button floated="right"> Manage Locations </Button>
-          </Segment>
+        <Container>
           <Segment.Group>
-            <Tab panes={panes} />
+            <Segment vertical clearing="true">
+              <Button padded floated="right"> Manage Locations </Button>
+            </Segment>
+            <Segment.Group>
+              <Tab panes={panes} />
+            </Segment.Group>
           </Segment.Group>
-        </Segment.Group>
+        </Container>
       </div>
     );
   }
