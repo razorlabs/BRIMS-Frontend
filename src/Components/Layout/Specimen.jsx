@@ -1,7 +1,38 @@
-import { Segment, Label, Container, Icon, Tab, Table, Button, List, Modal, MountNode } from 'semantic-ui-react';
+import { Grid, Segment, Label, Container, Icon, Tab, Table, Button, List, Modal, MountNode, Divider } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 import SpecimenModal from './SpecimenModal';
+
+const SpecimenInfoTable = () => (
+  <Table celled striped>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Collect Date</Table.HeaderCell>
+        <Table.HeaderCell>Collect Time</Table.HeaderCell>
+        <Table.HeaderCell># of Tubes</Table.HeaderCell>
+        <Table.HeaderCell>Storage</Table.HeaderCell>
+        <Table.HeaderCell>Available to Aliquot <Icon color="blue" name="plus circle" link="/" /></Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>2018-04-26</Table.Cell>
+        <Table.Cell>22:34</Table.Cell>
+        <Table.Cell>4</Table.Cell>
+        <Table.Cell><Button size="large" icon="dropbox" /></Table.Cell>
+        <Table.Cell>3/4</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+);
+
+const specimenTypes = [
+  { key: 'ACD', text: 'ACD', value: 'ACD' },
+  { key: 'CVF', text: 'Aspirator for CVF', value: 'CVF' },
+  { key: 'Blood for Plasma', text: 'Blood for Plasma', value: 'BLDPSM' },
+  { key: 'DBS', text: 'Dried Blood Spot', value: 'DBS' },
+];
 
 export default class Specimen extends React.Component {
   // The Specimen view needs a locked-visual indicator with aliquot to denote the association
@@ -55,13 +86,15 @@ export default class Specimen extends React.Component {
     const panes = [
       {
         menuItem: 'Dried Blood Spot ID: 4',
-        pane: <TableSegment />,
+        render: () => <Tab.Pane><SpecimenInfoTable /><TableSegment /></Tab.Pane>
       },
       {
         menuItem: 'Swab ID: 5',
+        render: () => <Tab.Pane><SpecimenInfoTable /><TableSegment /></Tab.Pane>
       },
       {
         menuItem: 'Swab ID: 9',
+        render: () => <Tab.Pane><SpecimenInfoTable /><TableSegment /></Tab.Pane>
       },
     ];
 
@@ -96,14 +129,10 @@ export default class Specimen extends React.Component {
                       <List.Content>Next draw: Week 8</List.Content>
                     </List.Item>
                     <List.Item>
-                      <List.Icon name="calendar outline" />
-                      <List.Content>2020-04-22 10 days</List.Content>
-                    </List.Item>
-                    <List.Item>
                       <List.Icon name="eyedropper" />
-                      <List.Content>Blood <Icon color="blue" name="plus circle" /> </List.Content>
+                      <List.Content>Blood <Icon color="blue" name="plus circle" link="/" /> </List.Content>
                       <List.Icon name="eyedropper" />
-                      <List.Content>Urine <Icon color="blue" name="plus circle" /> </List.Content>
+                      <List.Content>Urine <Icon color="blue" name="plus circle" link="/" /> </List.Content>
                     </List.Item>
                   </List>
                 </Segment>
@@ -112,9 +141,9 @@ export default class Specimen extends React.Component {
           </Segment>
           <Segment.Group>
             <Segment padded>
-              <SpecimenModal />
-              <Label size="large" attached="top left">Specimen</Label>
-              <Tab panes={panes} renderActiveOnly={false} />
+                <Label size="large" attached="top left">Specimen</Label>
+                <SpecimenModal />
+                <Tab panes={panes} />
             </Segment>
           </Segment.Group>
         </Container>
