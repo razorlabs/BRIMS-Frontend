@@ -19,7 +19,7 @@ class BoxGrid extends React.Component {
         <Table.Body>
           <Table.Row>
             <Table.Cell>1</Table.Cell>
-            <Table.Cell>222-22a</Table.Cell>
+            <Table.Cell>222-22a BldSpt</Table.Cell>
             <Table.Cell>222-22b</Table.Cell>
             <Table.Cell></Table.Cell>
           </Table.Row>
