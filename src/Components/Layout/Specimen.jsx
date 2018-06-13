@@ -1,4 +1,4 @@
-import { Grid, Segment, Label, Container, Icon, Tab, Table, Button, List, Modal, MountNode, Divider } from 'semantic-ui-react';
+import { Segment, Label, Container, Icon, Tab, Table, Button, List } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 import SpecimenModal from './SpecimenModal';
@@ -10,6 +10,7 @@ const SpecimenInfoTable = () => (
         <Table.HeaderCell>Collect Date</Table.HeaderCell>
         <Table.HeaderCell>Collect Time</Table.HeaderCell>
         <Table.HeaderCell># of Tubes</Table.HeaderCell>
+        <Table.HeaderCell>Volume</Table.HeaderCell>
         <Table.HeaderCell>Storage</Table.HeaderCell>
         <Table.HeaderCell>Available to Aliquot <Icon color="blue" name="plus circle" link="/" /></Table.HeaderCell>
       </Table.Row>
@@ -20,6 +21,7 @@ const SpecimenInfoTable = () => (
         <Table.Cell>2018-04-26</Table.Cell>
         <Table.Cell>22:34</Table.Cell>
         <Table.Cell>4</Table.Cell>
+        <Table.Cell>10ml</Table.Cell>
         <Table.Cell><Button size="large" icon="dropbox" /></Table.Cell>
         <Table.Cell>3/4</Table.Cell>
       </Table.Row>
@@ -27,12 +29,14 @@ const SpecimenInfoTable = () => (
   </Table>
 );
 
+/* 
 const specimenTypes = [
   { key: 'ACD', text: 'ACD', value: 'ACD' },
   { key: 'CVF', text: 'Aspirator for CVF', value: 'CVF' },
   { key: 'Blood for Plasma', text: 'Blood for Plasma', value: 'BLDPSM' },
   { key: 'DBS', text: 'Dried Blood Spot', value: 'DBS' },
 ];
+*/ 
 
 export default class Specimen extends React.Component {
   // The Specimen view needs a locked-visual indicator with aliquot to denote the association
@@ -47,6 +51,7 @@ export default class Specimen extends React.Component {
                 <Table.HeaderCell>Aliquot ID</Table.HeaderCell>
                 <Table.HeaderCell>Visit</Table.HeaderCell>
                 <Table.HeaderCell>Collect Time</Table.HeaderCell>
+                <Table.HeaderCell>Volume</Table.HeaderCell>
                 <Table.HeaderCell>Storage</Table.HeaderCell>
                 <Table.HeaderCell>Notes</Table.HeaderCell>
                 <Table.HeaderCell>Print Labels</Table.HeaderCell>
@@ -63,6 +68,9 @@ export default class Specimen extends React.Component {
                 </Table.Cell>
                 <Table.Cell>
                   2018-04-04 22:04
+                </Table.Cell>
+                <Table.Cell>
+                  5ml
                 </Table.Cell>
                 <Table.Cell textAlign="center">
                   <Button size="large" icon="dropbox" />

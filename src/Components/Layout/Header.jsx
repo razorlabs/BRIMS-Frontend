@@ -22,7 +22,7 @@ export default class Header extends React.Component {
         <Menu.Item
           name="LIMS"
           as={Link}
-          to="/"
+          to="/lims"
         />
         <Menu.Item /* The search bar here is a bit cluttered/redundant with query section */>
           <Search size="small" placeholder="Search" />

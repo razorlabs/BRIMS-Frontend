@@ -1,4 +1,3 @@
-import { Segment } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 

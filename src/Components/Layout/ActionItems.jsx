@@ -16,7 +16,7 @@ export default class ActionItems extends React.Component {
               <List>
                 <List.Content>
                   Patient: 222-442 Draw: Blood, Dry Blood Spot
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" /*link="/specimen"*/ name="external square" />
                 </List.Content>
               </List>
             </Segment>
@@ -25,7 +25,7 @@ export default class ActionItems extends React.Component {
               <List>
                 <List.Content>
                   SSID: 4 Type: Dry Blood Spot
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" name="external square" />
                 </List.Content>
               </List>
             </Segment>
@@ -34,7 +34,7 @@ export default class ActionItems extends React.Component {
               <List>
                 <List.Content>
                   SSID: 3 Patient: 223-444 DBS
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" name="external square" />
                 </List.Content>
               </List>
             </Segment>
@@ -46,11 +46,11 @@ export default class ActionItems extends React.Component {
               <List>
                 <List.Content>
                   SSID: 24
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" name="external square" />
                 </List.Content>
                 <List.Content>
                   SSID: 25
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" name="external square" />
                 </List.Content>
               </List>
             </Segment>
@@ -59,7 +59,7 @@ export default class ActionItems extends React.Component {
               <List>
                 <List.Content>
                   Location: UCD Aliquot Center Date: 2017-04-23
-                  <Icon color="blue" link="/specimen" name="external square" />
+                  <Icon color="blue" name="external square" />
                 </List.Content>
               </List>
             </Segment>

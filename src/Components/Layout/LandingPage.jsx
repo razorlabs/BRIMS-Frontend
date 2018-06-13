@@ -1,5 +1,4 @@
-import { Container, Card, Icon } from 'semantic-ui-react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container, Card } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 
@@ -10,37 +9,37 @@ export default class LandingPage extends React.Component {
         header: 'Specimen',
         description: 'Specimen and Aliquot Management',
         color: 'red',
-        href: '/specimen',
+        href: '/lims/specimen',
       },
       {
         header: 'Shipping',
         description: 'Shipping and Recieving',
         color: 'blue',
-        href: '/shipping',
+        href: '/lims/shipping',
       },
       {
         header: 'Query',
         description: 'Search Tool',
         color: 'green',
-        href: '/query',
+        href: '/lims/query',
       },
       {
         header: 'Storage Setup',
         description: 'Set up Storage',
         color: 'orange',
-        href: '/storage',
+        href: '/lims/storage',
       },
       {
         header: 'Action Items',
         description: 'Items pending action',
         color: 'teal',
-        href: '/action',
+        href: '/lims/action',
       },
       {
         header: 'Patient Scheduling',
         description: 'Schedule Patients',
         color: 'violet',
-        href: '/schedule',
+        href: '/lims/schedule',
       },
     ];
 

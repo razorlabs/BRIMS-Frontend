@@ -8,7 +8,10 @@ class PendingShipment extends React.Component {
       <Tab.Pane>
         <Table>
           <Table.Row>
-            <Table.HeaderCell>Item</Table.HeaderCell>
+            <Table.HeaderCell>PID</Table.HeaderCell>
+            <Table.HeaderCell>Type</Table.HeaderCell>
+            <Table.HeaderCell>Aliquot ID</Table.HeaderCell>
+            <Table.HeaderCell>Specimen ID</Table.HeaderCell>
             <Table.HeaderCell>Ship From</Table.HeaderCell>
             <Table.HeaderCell>Ship To</Table.HeaderCell>
             <Table.HeaderCell>Send Date</Table.HeaderCell>
@@ -17,7 +20,10 @@ class PendingShipment extends React.Component {
           </Table.Row>
           <Table.Body>
             <Table.Row>
-              <Table.Cell>224-4fb Blood Plasma</Table.Cell>
+              <Table.Cell>224-4fb</Table.Cell>
+              <Table.Cell>Blood Plasma</Table.Cell>
+              <Table.Cell>10</Table.Cell>
+              <Table.Cell>31</Table.Cell>
               <Table.Cell>AVRC</Table.Cell>
               <Table.Cell>Moon</Table.Cell>
               <Table.Cell>2018-02-06</Table.Cell>
@@ -25,7 +31,10 @@ class PendingShipment extends React.Component {
               <Table.Cell>Radioactive handle with care</Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>223-4fb Blood Plasma</Table.Cell>
+              <Table.Cell>223-4fb</Table.Cell>
+              <Table.Cell>Blood Plasma</Table.Cell>
+              <Table.Cell>10</Table.Cell>
+              <Table.Cell></Table.Cell>
               <Table.Cell>AVRC</Table.Cell>
               <Table.Cell>Moon</Table.Cell>
               <Table.Cell>2018-02-06</Table.Cell>
@@ -48,6 +57,7 @@ class PendingRecieving extends React.Component {
         <Table>
           <Table.Row>
             <Table.HeaderCell>Item</Table.HeaderCell>
+            <Table.HeaderCell>Type</Table.HeaderCell>
             <Table.HeaderCell>Ship From</Table.HeaderCell>
             <Table.HeaderCell>Ship To</Table.HeaderCell>
             <Table.HeaderCell>Send Date</Table.HeaderCell>
@@ -58,6 +68,7 @@ class PendingRecieving extends React.Component {
           <Table.Body>
             <Table.Row>
               <Table.Cell>225-442</Table.Cell>
+              <Table.Cell>Blood Plasma</Table.Cell>
               <Table.Cell>Moon</Table.Cell>
               <Table.Cell>AVRC</Table.Cell>
               <Table.Cell>2018-02-06</Table.Cell>
@@ -67,6 +78,7 @@ class PendingRecieving extends React.Component {
             </Table.Row>
             <Table.Row>
               <Table.Cell>228-43b</Table.Cell>
+              <Table.Cell>Blood Plasma</Table.Cell>
               <Table.Cell>Moon</Table.Cell>
               <Table.Cell>AVRC</Table.Cell>
               <Table.Cell>2018-02-06</Table.Cell>
@@ -76,6 +88,7 @@ class PendingRecieving extends React.Component {
             </Table.Row>
             <Table.Row>
               <Table.Cell>228-43b</Table.Cell>
+              <Table.Cell>Blood Plasma</Table.Cell>
               <Table.Cell>Moon</Table.Cell>
               <Table.Cell>AVRC</Table.Cell>
               <Table.Cell>2018-02-06</Table.Cell>

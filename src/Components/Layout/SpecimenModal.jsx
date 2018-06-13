@@ -1,4 +1,4 @@
-import { Segment, Dropdown, Modal, Button } from 'semantic-ui-react';
+import { Dropdown, Modal, Button } from 'semantic-ui-react';
 import React from 'react';
 
 const specimenTypes = [

@@ -1,4 +1,4 @@
-import { Label, Table, Button, Container, Segment } from 'semantic-ui-react';
+import { Label, Table, Button, Container } from 'semantic-ui-react';
 import React from 'react';
 import Header from './Header';
 
