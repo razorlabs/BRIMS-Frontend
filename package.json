@@ -5,7 +5,11 @@
   "author": "Zach Smith",
   "license": "MIT",
   "dependencies": {
+    "apollo-client-preset": "^1.0.8",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "react": "^16.4.1",
+    "react-apollo": "^2.1.5",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
@@ -17,5 +21,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "json-graphql-server": "^2.1.1"
   }
 }
