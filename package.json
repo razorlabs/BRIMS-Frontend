@@ -17,6 +17,7 @@
     "semantic-ui-react": "^0.81.1"
   },
   "scripts": {
+    "startapi": "json-graphql-server src/api/db.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
