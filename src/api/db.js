@@ -1,6 +1,8 @@
 module.exports = {
   patients: [
     {
+      id: '1',
+      pid: '222-aaa',
       externalid: '501-42-444',
       specimen: {
         id: '4',
