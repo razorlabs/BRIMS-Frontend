@@ -17,7 +17,7 @@ GraphQL-Client: Apollo
 Frontend: React
 
 
-#####Front End:
+##### Front End:
 
 All React Components can be found in /src/Components
 
