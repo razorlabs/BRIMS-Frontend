@@ -4,7 +4,7 @@ Open Source Laboratory Information Management System
 ##### Getting Started:
 1) Run "yarn"
 2) Run "yarn start"
-3) Open browser to localhost:<run-port>/lims
+3) Open browser to localhost:port-of-choice/lims
 
 ## Developers Guide:
 
