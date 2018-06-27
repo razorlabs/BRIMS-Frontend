@@ -12,6 +12,7 @@
     "apollo-link-http": "^1.5.4",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
+    "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-apollo": "^2.1.5",
     "react-dom": "^16.4.1",
@@ -28,6 +29,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
