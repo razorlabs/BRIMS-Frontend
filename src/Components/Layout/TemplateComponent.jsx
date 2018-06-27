@@ -1,15 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Loader, Dimmer } from 'semantic-ui-react';
 
 class Template extends React.Component {
-
-  static propTypes = {
-    data: React.PropTypes.shape({
-      loading: React.PropTypes.bool,
-      error: React.PropTypes.object,
-      Replace: React.PropTypes.object,
-    }).isRequired,
-  }
   render() {
     if (this.props.data.loading) {
       return <Dimmer active> <Loader /> </Dimmer>;
@@ -22,6 +15,14 @@ class Template extends React.Component {
     );
   }
 }
+
+Template.propTypes = {
+  data: PropTypes.shape({
+    loading: PropTypes.bool,
+    error: PropTypes.object,
+    Replace: PropTypes.object,
+  }).isRequired,
+};
 
 export default Template;
 
