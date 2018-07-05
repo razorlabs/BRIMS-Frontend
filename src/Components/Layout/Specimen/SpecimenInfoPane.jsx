@@ -42,7 +42,6 @@ class SpecimenInfoPane extends React.Component {
     for (let i = 0; i < buildpanes.length; i += 1) {
       panes.push(buildpanes[i]);
     }
-    console.log(panes);
     return (
       <Container>
         <Segment.Group>
