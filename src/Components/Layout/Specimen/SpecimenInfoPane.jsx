@@ -1,8 +1,9 @@
-import { Segment, Container, Tab, Loader, Dimmer } from 'semantic-ui-react';
+import { Segment, Label, Container, Tab, Table, Loader, Dimmer } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SpecimenTableHeader from './SpecimenTableHeader';
 import SpecimenInfoRow from './SpecimenInfoRow';
+import AliquotInfoPaneWithData from '../../Route/AliquotInfoPaneWithData';
 
 
 /* A helper function to build the semantic-ui Tab panes
@@ -19,8 +20,15 @@ function BuildPanes(type, id, specimen) {
     menuItem: item,
     render: () => (
       <Tab.Pane>
-        <SpecimenTableHeader />
-        <SpecimenInfoRow specimen={specimen} key={specimen.id} />
+        <Segment>
+          <Table celled>
+            <SpecimenTableHeader />
+            <SpecimenInfoRow specimen={specimen} key={specimen.id} />
+          </Table>
+        </Segment>
+        <Segment>
+          <AliquotInfoPaneWithData specimenid={specimen.id} />
+        </Segment>
       </Tab.Pane>
     ),
   };
@@ -46,7 +54,10 @@ class SpecimenInfoPane extends React.Component {
       <Container>
         <Segment.Group>
           <Segment padded>
-            <Tab panes={panes} />
+            <Label size="large" attached="top left">Specimen</Label>
+            <Table celled>
+              <Tab panes={panes} />
+            </Table>
           </Segment>
         </Segment.Group>
       </Container>
