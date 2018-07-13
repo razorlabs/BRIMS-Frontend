@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import Header from '../Layout/Header';
 import PatientInfoPaneWithData from './PatientInfoPaneWithData';
 import SpecimenInfoPaneWithData from './SpecimenInfoPaneWithData';

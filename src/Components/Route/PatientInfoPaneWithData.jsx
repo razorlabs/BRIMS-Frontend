@@ -5,7 +5,7 @@ import { GET_PATIENT_BY_ID } from '../Data/SpecimenData';
 const PatientInfoPaneWithData = graphql(GET_PATIENT_BY_ID, {
   options: props => ({
     variables: {
-      id: (props.match.params.id),
+      patientid: (props.patientid),
     },
   }),
 })(PatientInfoPane);
