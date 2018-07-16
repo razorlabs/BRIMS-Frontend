@@ -5,7 +5,9 @@
     "es6": true,
     "browser": true
   },
+  "parser": "babel-eslint",
   "rules": {
+    "strict": 0,
     "no-unused-vars": 0,
     "react/jsx-filename-extension":    [1, { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": [1, { "ignorePureComponents": true }]
