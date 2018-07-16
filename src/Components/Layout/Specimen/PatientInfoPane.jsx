@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
+import { Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
 
 
 class PatientInfoPane extends React.Component {
@@ -15,43 +15,47 @@ class PatientInfoPane extends React.Component {
     return (
       <Container>
         <Segment>
-          <Label size="large" attached="top left">
-            Patient Info Pane
-          </Label>
-          <Container>
-            <Segment.Group horizontal>
-              <Segment>
-                <List>
-                  <List.Item>
-                    <List.Icon name="address card" />
-                    <List.Content>SSID: {`${this.props.data.Patient.id}`}</List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="address book" />
-                    <List.Content>PID: {`${this.props.data.Patient.pid}`}</List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="address book outline" />
-                    <List.Content>External ID: {`${this.props.data.Patient.externalid}`}</List.Content>
-                  </List.Item>
-                </List>
-              </Segment>
-              <Segment >
-                <List>
-                  <List.Item>
-                    <List.Icon name="exclamation" />
-                    <List.Content>Next draw: Week 8</List.Content>
-                  </List.Item>
-                  <List.Item>
-                    <List.Icon name="eyedropper" />
-                    <List.Content>Blood <Icon color="blue" name="plus circle" /> </List.Content>
-                    <List.Icon name="eyedropper" />
-                    <List.Content>Urine <Icon color="blue" name="plus circle" /> </List.Content>
-                  </List.Item>
-                </List>
-              </Segment>
-            </Segment.Group>
-          </Container>
+          <Grid>
+            <Grid.Row>
+              <Label size="large" attached="top left">
+                Patient Info Pane
+              </Label>
+            </Grid.Row>
+            <Container>
+              <Segment.Group horizontal>
+                <Segment>
+                  <List>
+                    <List.Item>
+                      <List.Icon name="address card" />
+                      <List.Content>SSID: {`${this.props.data.Patient.id}`}</List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <List.Icon name="address book" />
+                      <List.Content>PID: {`${this.props.data.Patient.pid}`}</List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <List.Icon name="address book outline" />
+                      <List.Content>External ID: {`${this.props.data.Patient.externalid}`}</List.Content>
+                    </List.Item>
+                  </List>
+                </Segment>
+                <Segment >
+                  <List>
+                    <List.Item>
+                      <List.Icon name="exclamation" />
+                      <List.Content>Next draw: Week 8</List.Content>
+                    </List.Item>
+                    <List.Item>
+                      <List.Icon name="eyedropper" />
+                      <List.Content>Blood <Icon color="blue" name="plus circle" /> </List.Content>
+                      <List.Icon name="eyedropper" />
+                      <List.Content>Urine <Icon color="blue" name="plus circle" /> </List.Content>
+                    </List.Item>
+                  </List>
+                </Segment>
+              </Segment.Group>
+            </Container>
+          </Grid>
         </Segment>
       </Container>
     );
