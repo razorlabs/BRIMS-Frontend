@@ -1,5 +1,9 @@
 import React from 'react';
 
+/*
+  An example Layout Component for integration with apollo/graphql higher order
+  components. Theorhetical pateint data is demonstrated for data-manipulation
+*/
 class ExampleComponent extends React.Component {
 
   render() {
