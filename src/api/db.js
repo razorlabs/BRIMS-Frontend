@@ -66,7 +66,7 @@ module.exports = {
       notes: 'some example notes on 3',
     },
   ],
-  pendingshipping: [
+  pendingshipment: [
     {
       id: '1',
       pid: '225-444',
@@ -92,7 +92,7 @@ module.exports = {
       notes: 'Dont Shake',
     },
   ],
-  pendingrecieving: [
+  pendingreceiving: [
     {
       id: '1',
       item: '228-333',
