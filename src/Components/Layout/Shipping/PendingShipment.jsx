@@ -1,5 +1,4 @@
-import { Tab, Table, Container, Dimmer, Loader } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import { Tab, Table, Dimmer, Loader } from 'semantic-ui-react';
 import React from 'react';
 import PendingShipmentHeader from './PendingShipmentHeader';
 import PendingShipmentInfoRow from './PendingShipmentInfoRow';

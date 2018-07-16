@@ -1,9 +1,5 @@
-import { Tab, Table, Container, Dimmer, Loader } from 'semantic-ui-react';
-import { graphql } from 'react-apollo';
-import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
+import { Tab, Container } from 'semantic-ui-react';
 import React from 'react';
-import { GET_PENDING_SHIPMENTS, GET_PENDING_RECEIVING } from '../../Data/ShippingQueryData';
 import Header from '../Header';
 import PendingReceivingWithData from '../../Route/PendingReceivingWithData';
 import PendingShippingWithData from '../../Route/PendingShippingWithData';

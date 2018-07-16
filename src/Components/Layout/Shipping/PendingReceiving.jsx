@@ -1,4 +1,4 @@
-import { Tab, Table, Container, Dimmer, Loader } from 'semantic-ui-react';
+import { Tab, Table, Dimmer, Loader } from 'semantic-ui-react';
 import React from 'react';
 import PendingReceivingHeader from './PendingReceivingHeader';
 import PendingReceivingInfoRow from './PendingReceivingInfoRow';
