@@ -1,6 +1,6 @@
 import { graphql } from 'react-apollo';
 import PatientInfoPane from '../Layout/Specimen/PatientInfoPane';
-import { GET_PATIENT_BY_ID } from '../Data/SpecimenData';
+import { GET_PATIENT_BY_ID } from '../Data/SpecimenQueryData';
 
 const PatientInfoPaneWithData = graphql(GET_PATIENT_BY_ID, {
   options: props => ({
