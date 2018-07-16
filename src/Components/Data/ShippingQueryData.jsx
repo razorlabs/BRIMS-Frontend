@@ -17,9 +17,9 @@ export const GET_PENDING_SHIPMENTS = gql`
   }
 `;
 
-export const GET_PENDING_RECIEVING = gql`
+export const GET_PENDING_RECEIVING = gql`
   {
-    allPendingrecievings {
+    allPendingreceivings {
       id
       item
       type
