@@ -1,7 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
+import { Divider, Button, Input, Rail, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
+import EditPatientModal from './EditPatientModal';
 
+
+class ListInputSwitch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 'list',
+    };
+    this.toggleInput = this.toggleInput.bind(this);
+  }
+
+  toggleInput(event) {
+    if (this.state.display === 'input') {
+      this.setState({ display: 'list' });
+    } else {
+      this.setState({ display: 'input' });
+    }
+  }
+
+
+  render() {
+    if (this.state.display === 'list') {
+      return (
+        <List.Item>
+          <List.Icon name={this.props.displayIcon} />
+          <List.Content>{this.props.displayName}: {this.props.displayData}
+            <Button size="mini" icon onClick={this.toggleInput}>
+              <Icon fitted name="edit" />
+            </Button>
+          </List.Content>
+        </List.Item>
+
+      );
+    }
+    return (
+      <div>
+        <Input defaultValue={this.props.displayData} />
+        <Button icon onClick={this.toggleInput}><Icon name="edit" /></Button>
+      </div>
+    );
+  }
+}
 
 class PatientInfoPane extends React.Component {
 
@@ -27,16 +69,19 @@ class PatientInfoPane extends React.Component {
                   <List>
                     <List.Item>
                       <List.Icon name="address card" />
-                      <List.Content>SSID: {`${this.props.data.Patient.id}`}</List.Content>
+                      <List.Content>ID: {`${this.props.data.Patient.id}`}</List.Content>
                     </List.Item>
-                    <List.Item>
-                      <List.Icon name="address book" />
-                      <List.Content>PID: {`${this.props.data.Patient.pid}`}</List.Content>
-                    </List.Item>
-                    <List.Item>
-                      <List.Icon name="address book outline" />
-                      <List.Content>External ID: {`${this.props.data.Patient.externalid}`}</List.Content>
-                    </List.Item>
+                    <ListInputSwitch
+                      displayName="PID"
+                      displayData={this.props.data.Patient.pid}
+                      displayIcon="address book"
+                    />
+                    <ListInputSwitch
+                      displayName="External ID"
+                      displayData={this.props.data.Patient.externalid}
+                      displayIcon="address book outline"
+                    />
+
                   </List>
                 </Segment>
                 <Segment >
@@ -54,6 +99,13 @@ class PatientInfoPane extends React.Component {
                   </List>
                 </Segment>
               </Segment.Group>
+              <Rail attached internal position="right">
+                <EditPatientModal
+                  patient_id={this.props.data.Patient.id}
+                  patient_pid={this.props.data.Patient.pid}
+                  external_id={this.props.data.Patient.externalid}
+                />
+              </Rail>
             </Container>
           </Grid>
         </Segment>
