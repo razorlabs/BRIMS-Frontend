@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Divider, Button, Input, Rail, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
-import EditPatientModal from './EditPatientModal';
+import { Button, Input, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
 
 
 class ListInputSwitch extends React.Component {
@@ -99,13 +98,6 @@ class PatientInfoPane extends React.Component {
                   </List>
                 </Segment>
               </Segment.Group>
-              <Rail attached internal position="right">
-                <EditPatientModal
-                  patient_id={this.props.data.Patient.id}
-                  patient_pid={this.props.data.Patient.pid}
-                  external_id={this.props.data.Patient.externalid}
-                />
-              </Rail>
             </Container>
           </Grid>
         </Segment>
