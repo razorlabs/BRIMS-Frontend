@@ -53,6 +53,7 @@ class PatientInfoPane extends React.Component {
     if (this.props.data.error) {
       return <p> Error! </p>;
     }
+    console.log(this.props.data.patient)
     return (
       <Container>
         <Segment>
@@ -68,16 +69,16 @@ class PatientInfoPane extends React.Component {
                   <List>
                     <List.Item>
                       <List.Icon name="address card" />
-                      <List.Content>ID: {`${this.props.data.Patient.id}`}</List.Content>
+                      <List.Content>ID: {`${this.props.data.patient.id}`}</List.Content>
                     </List.Item>
                     <ListInputSwitch
                       displayName="PID"
-                      displayData={this.props.data.Patient.pid}
+                      displayData={this.props.data.patient.pid}
                       displayIcon="address book"
                     />
                     <ListInputSwitch
                       displayName="External ID"
-                      displayData={this.props.data.Patient.externalid}
+                      displayData={this.props.data.patient.externalId}
                       displayIcon="address book outline"
                     />
 
