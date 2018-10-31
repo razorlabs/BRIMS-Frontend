@@ -5,25 +5,25 @@ export const GET_ALL_PATIENTS = gql`
     allPatients {
       id
       pid
-      externalid
+      externalId
     }
   }
 `;
 
 export const GET_PATIENT_BY_ID = gql`
-  query($patientid: ID!) {
-    Patient(id: $patientid) {
+  query($patientid: Int!) {
+    patient(id: $patientid) {
       id
       pid
-      externalid
+      externalId
     }
   }
 `;
 
 export const GET_SPECIMEN_BY_PATIENT_ID = gql`
-  query($patientid: String!) {
-    allSpecimens(filter:
-      {patientid: $patientid}) {
+  query($patientid: Int!) {
+    allSpecimen(patient: $patientid)
+      {
         id
         patientid
         type
@@ -35,9 +35,9 @@ export const GET_SPECIMEN_BY_PATIENT_ID = gql`
 `;
 
 export const GET_ALIQUOT_BY_SPECIMEN_ID = gql`
-  query($specimenid: String!) {
-    allAliquots(filter:
-      {specimenid: $specimenid}) {
+  query($specimenid: Int!) {
+    allAliquot(specimenid: $specimenid)
+      {
         id
         specimenid
         visit
