@@ -43,7 +43,7 @@ class SpecimenInfoPane extends React.Component {
     if (this.props.data.error) {
       return <p> Error! </p>;
     }
-    const buildpanes = this.props.data.allSpecimens.map((specimen) => {
+    const buildpanes = this.props.data.allSpecimen.map((specimen) => {
       return BuildPanes(specimen.type, specimen.id, specimen);
     });
     const panes = [];
