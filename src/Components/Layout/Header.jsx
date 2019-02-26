@@ -24,9 +24,6 @@ export default class Header extends React.Component {
           as={Link}
           to="/lims"
         />
-        <Menu.Item /* The search bar here is a bit cluttered/redundant with query section */>
-          <Search size="small" placeholder="Search" />
-        </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item /* The setup icon */
             name="cog"

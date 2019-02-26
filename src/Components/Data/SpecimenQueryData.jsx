@@ -36,7 +36,7 @@ export const GET_SPECIMEN_BY_PATIENT_ID = gql`
 
 export const GET_ALIQUOT_BY_SPECIMEN_ID = gql`
   query($specimenid: Int!) {
-    allAliquot(specimenid: $specimenid)
+    allAliquot(specimen: $specimenid)
       {
         id
         specimenid
@@ -48,4 +48,3 @@ export const GET_ALIQUOT_BY_SPECIMEN_ID = gql`
       }
   }
 `;
-

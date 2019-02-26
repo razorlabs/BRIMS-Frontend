@@ -15,7 +15,7 @@ class AliquotInfoPane extends React.Component {
     return (
       <Table celled>
         <AliquotTableHeader />
-        {this.props.data.allAliquots.map((aliquot) => {
+        {this.props.data.allAliquot.map((aliquot) => {
             return <AliquotInfoRow aliquot={aliquot} />;
         })}
       </Table>
