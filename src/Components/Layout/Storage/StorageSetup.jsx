@@ -1,6 +1,6 @@
 import { Table, Button, Segment, Container, List } from 'semantic-ui-react';
 import React from 'react';
-import Header from './Header';
+import Header from '../Header';
 
 
 class BoxGrid extends React.Component {

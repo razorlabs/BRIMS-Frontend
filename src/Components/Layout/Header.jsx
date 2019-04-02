@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Icon, Search } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export default class Header extends React.Component {

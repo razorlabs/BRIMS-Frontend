@@ -2,16 +2,14 @@ import { Form, Dropdown, Button } from 'semantic-ui-react';
 import React from 'react';
 
 class SpecimenEntry extends React.Component {
-  state = { id: '', pid: '', externalid: '' }
+  state = { pid: '', externalid: '' }
 
-  handleChange = (event, { name, value }) => (
-    this.setState({ [name]: value })
-  )
+  handleChange = event => this.setState({ [event.target.name]: event.target.value })
 
   handleSubmit = () => {
-    const { id, pid, externalid } = this.state;
+    const { pid, externalId } = this.state;
     this.props.mutate({
-      variables: { id: this.state.id, pid: this.state.pid, externalid: this.state.externalid },
+      variables: { pid: this.state.pid, externalId: this.state.externalid },
     })
       .then(({ data }) => {
         console.log('got data', data);
@@ -24,10 +22,6 @@ class SpecimenEntry extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Form.Field>
-          <label>ID</label>
-          <input placeholder="ID" name="id" value={this.state.id} onChange={this.handleChange} />
-        </Form.Field>
         <Form.Field>
           <label>PID (Patient ID)</label>
           <input placeholder="Patient ID" name="pid" value={this.state.pid} onChange={this.handleChange} />

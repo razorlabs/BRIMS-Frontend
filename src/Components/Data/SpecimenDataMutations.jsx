@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 
 export const ADD_PATIENT = gql`
-  mutation createPatient($id: ID!, $pid: String!, $externalid: String!) {
-    createPatient(id: $id, pid: $pid, externalid: $externalid) {
+  mutation createPatient($pid: String!, $externalId: String!) {
+    createPatient(pid: $pid, externalId: $externalId) {
       id
       pid
-      externalid
+      externalId
     }
   }
 `;

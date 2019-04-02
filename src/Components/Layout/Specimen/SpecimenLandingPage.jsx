@@ -1,7 +1,5 @@
-import { Segment, Label, Container, Icon, Tab, Table, Button, List } from 'semantic-ui-react';
 import React from 'react';
 import Header from '../Header';
-import SpecimenModal from './SpecimenModal';
 
 
 export default class SpecimenLandingPage extends React.Component {
