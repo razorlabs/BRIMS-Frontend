@@ -2,14 +2,6 @@ import { Container, Button, Form, Grid, Header, Segment, Message } from 'semanti
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
-function errorMessage(Component) {
-  return function withError({ loginerror }) {
-    if (loginerror) {
-      return
-    }
-    return <div />;
-  };
-}
 
 class Login extends React.Component {
     state = {
