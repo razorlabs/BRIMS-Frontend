@@ -1,6 +1,6 @@
 import { Table, Button, Segment, Container, List } from 'semantic-ui-react';
 import React from 'react';
-import Header from '../Header';
+import PageMenu from '../PageMenu';
 
 
 class BoxGrid extends React.Component {
@@ -45,7 +45,7 @@ export default class StorageSetup extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Segment vertical clearing>
           <Button> Manage Storage </Button>
         </Segment>

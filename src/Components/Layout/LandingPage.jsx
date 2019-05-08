@@ -1,6 +1,6 @@
 import { Container, Card } from 'semantic-ui-react';
 import React from 'react';
-import Header from './Header';
+import PageMenu from './PageMenu';
 
 export default class LandingPage extends React.Component {
   render() {
@@ -45,7 +45,7 @@ export default class LandingPage extends React.Component {
 
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Card.Group centered itemsPerRow={3} items={items} />
         </Container>

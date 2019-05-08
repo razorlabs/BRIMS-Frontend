@@ -1,6 +1,6 @@
 import { Segment, Label, Container, Icon, Tab, Table, Button, List } from 'semantic-ui-react';
 import React from 'react';
-import Header from '../Header';
+import PageMenu from '../PageMenu';
 import SpecimenModal from './SpecimenModal';
 
 const SpecimenInfoTable = () => (
@@ -99,7 +99,7 @@ export default class Specimen extends React.Component {
 
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Segment padded>
             <Label size="large" attached="top left">Patient Info Pane</Label>
@@ -140,9 +140,9 @@ export default class Specimen extends React.Component {
           </Segment>
           <Segment.Group>
             <Segment padded>
-                <Label size="large" attached="top left">Specimen</Label>
-                <SpecimenModal />
-                <Tab panes={panes} />
+              <Label size="large" attached="top left">Specimen</Label>
+              <SpecimenModal />
+              <Tab panes={panes} />
             </Segment>
           </Segment.Group>
         </Container>

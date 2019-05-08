@@ -1,13 +1,13 @@
 import { Segment, Label, Container, List, Icon } from 'semantic-ui-react';
 import React from 'react';
-import Header from './Header';
+import PageMenu from './PageMenu';
 
 export default class ActionItems extends React.Component {
 
   render() {
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Segment>
             <Label size="large" attached="top left">Specimen</Label>

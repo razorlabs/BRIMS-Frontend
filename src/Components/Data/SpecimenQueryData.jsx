@@ -10,6 +10,20 @@ export const GET_ALL_PATIENTS = gql`
   }
 `;
 
+export const GET_ALL_SPECIMEN = gql`
+  {
+    allSpecimen {
+      id
+      patientid
+      type
+      collectdate
+      collecttime
+      volume
+      patient
+    }
+  }
+`;
+
 export const GET_PATIENT_BY_ID = gql`
   query($patientid: Int!) {
     patient(id: $patientid) {

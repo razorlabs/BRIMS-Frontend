@@ -1,6 +1,6 @@
 import { Tab, Container } from 'semantic-ui-react';
 import React from 'react';
-import Header from '../Header';
+import PageMenu from '../PageMenu';
 import PendingReceivingWithData from '../../Route/PendingReceivingWithData';
 import PendingShippingWithData from '../../Route/PendingShippingWithData';
 
@@ -19,7 +19,7 @@ class ShippingCombined extends React.Component {
     ];
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Tab panes={panes} />
         </Container>

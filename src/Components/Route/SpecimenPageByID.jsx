@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import Header from '../Layout/Header';
+import PageMenu from '../Layout/PageMenu';
 import PatientInfoPaneWithData from './PatientInfoPaneWithData';
 import SpecimenInfoPaneWithData from './SpecimenInfoPaneWithData';
 
@@ -8,7 +8,7 @@ class SpecimenPageByID extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Grid>
           <Grid.Row>
             <PatientInfoPaneWithData patientid={this.props.match.params.id} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
-import Header from '../Header';
+import PageMenu from '../Header';
 import PropTypes from 'prop-types';
 import { Table, Button, Input, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
 
@@ -44,7 +44,7 @@ class TwoTest extends React.Component {
 
     return (
       <div>
-        <Header />
+        <PageMenu />
       </div>
     );
   }

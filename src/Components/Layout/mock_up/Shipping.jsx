@@ -1,6 +1,6 @@
 import { Checkbox, Button, Container, Menu, Label, Segment, Tab, Table } from 'semantic-ui-react';
 import React from 'react';
-import Header from '../Header';
+import PageMenu from '../PageMenu';
 
 class PendingShipment extends React.Component {
   render() {
@@ -8,15 +8,15 @@ class PendingShipment extends React.Component {
       <Tab.Pane>
         <Table>
           <Table.Row>
-            <Table.HeaderCell>PID</Table.HeaderCell>
-            <Table.HeaderCell>Type</Table.HeaderCell>
-            <Table.HeaderCell>Aliquot ID</Table.HeaderCell>
-            <Table.HeaderCell>Specimen ID</Table.HeaderCell>
-            <Table.HeaderCell>Ship From</Table.HeaderCell>
-            <Table.HeaderCell>Ship To</Table.HeaderCell>
-            <Table.HeaderCell>Send Date</Table.HeaderCell>
-            <Table.HeaderCell>Recipient</Table.HeaderCell>
-            <Table.HeaderCell>Notes</Table.HeaderCell>
+            <Table.PageMenuCell>PID</Table.PageMenuCell>
+            <Table.PageMenuCell>Type</Table.PageMenuCell>
+            <Table.PageMenuCell>Aliquot ID</Table.PageMenuCell>
+            <Table.PageMenuCell>Specimen ID</Table.PageMenuCell>
+            <Table.PageMenuCell>Ship From</Table.PageMenuCell>
+            <Table.PageMenuCell>Ship To</Table.PageMenuCell>
+            <Table.PageMenuCell>Send Date</Table.PageMenuCell>
+            <Table.PageMenuCell>Recipient</Table.PageMenuCell>
+            <Table.PageMenuCell>Notes</Table.PageMenuCell>
           </Table.Row>
           <Table.Body>
             <Table.Row>
@@ -56,14 +56,14 @@ class PendingRecieving extends React.Component {
       <Tab.Pane>
         <Table>
           <Table.Row>
-            <Table.HeaderCell>Item</Table.HeaderCell>
-            <Table.HeaderCell>Type</Table.HeaderCell>
-            <Table.HeaderCell>Ship From</Table.HeaderCell>
-            <Table.HeaderCell>Ship To</Table.HeaderCell>
-            <Table.HeaderCell>Send Date</Table.HeaderCell>
-            <Table.HeaderCell>Recipient</Table.HeaderCell>
-            <Table.HeaderCell>Notes</Table.HeaderCell>
-            <Table.HeaderCell>Received?</Table.HeaderCell>
+            <Table.PageMenuCell>Item</Table.PageMenuCell>
+            <Table.PageMenuCell>Type</Table.PageMenuCell>
+            <Table.PageMenuCell>Ship From</Table.PageMenuCell>
+            <Table.PageMenuCell>Ship To</Table.PageMenuCell>
+            <Table.PageMenuCell>Send Date</Table.PageMenuCell>
+            <Table.PageMenuCell>Recipient</Table.PageMenuCell>
+            <Table.PageMenuCell>Notes</Table.PageMenuCell>
+            <Table.PageMenuCell>Received?</Table.PageMenuCell>
           </Table.Row>
           <Table.Body>
             <Table.Row>
@@ -125,7 +125,7 @@ export default class Shipping extends React.Component {
 
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Segment.Group>
             <Segment vertical clearing="true">

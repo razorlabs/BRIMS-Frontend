@@ -1,6 +1,6 @@
 import { Label, Table, Button, Container } from 'semantic-ui-react';
 import React from 'react';
-import Header from './Header';
+import PageMenu from './PageMenu';
 
 const VisitSpecimenTable = () => (
   <Table celled definition>
@@ -53,7 +53,7 @@ export default class PatientScheduling extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <PageMenu />
         <Container>
           <Button>Add Visit</Button>
           <Button>Add Specimen Draw</Button>
