@@ -18,8 +18,8 @@ const DrawTable = (props) => {
   schedulejsonkeys.map(x => tableheader.push(<Table.HeaderCell>{x}</Table.HeaderCell>));
   // a wrapper function to return a table cell
   const tablecell = schedule => (<Table.Cell> { schedule } </Table.Cell>);
-  // a wrapper fuction to return a button
-  const button = specimentype => (<Button size="tiny"> { specimentype } </Button>);
+  // a wrapper fuction to return a button. Label is utilized for compact size
+  const button = specimentype => (<Label horizontal> { specimentype } </Label>);
   // a quick function to return the array of specimen for each event(key)
   const jsonvalue = key => schedulejson[key];
 
