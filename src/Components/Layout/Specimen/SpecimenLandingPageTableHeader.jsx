@@ -7,8 +7,9 @@ import React from 'react';
   See backend model for all_specimen (allSpecimen) for reference
 
   While we could map over the values coming from graphql
-    1) __typename and other prototype objects sneak in
-    2) It is currently overengineering and more difficult to edit
+    1) Unwanted objects sneak in that are useful but not as table headers
+    2) It is currently overengineering and otherwise opaque
+    (table headers would be edited in schema)
 
   If there are a large number of table changes that happen in the future then
   mapping over the values to create the header should be revisited

@@ -36,10 +36,16 @@ export default class LandingPage extends React.Component {
         href: '/lims/action',
       },
       {
-        header: 'Patient Scheduling',
-        description: 'Schedule Patients',
+        header: 'Draw Scheduling',
+        description: 'Add Specimen Types Draw Schedules',
         color: 'violet',
         href: '/lims/schedule',
+      },
+      {
+        header: 'Patient',
+        description: 'Add/Ingest patients',
+        color: 'yellow',
+        href: '/lims/patient',
       },
     ];
 
@@ -47,7 +53,7 @@ export default class LandingPage extends React.Component {
       <div>
         <PageMenu />
         <Container>
-          <Card.Group centered itemsPerRow={3} items={items} />
+          <Card.Group centered itemsPerRow={4} items={items} />
         </Container>
       </div>
     );
