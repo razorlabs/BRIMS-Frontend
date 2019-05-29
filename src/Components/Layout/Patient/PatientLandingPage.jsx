@@ -20,6 +20,9 @@ class PatientLandingPage extends React.Component {
         {item.externalId}
       </Table.Cell>
       <Table.Cell>
+        {item.source}
+      </Table.Cell>
+      <Table.Cell>
         {item.synced ? <Icon name="check" /> : <Icon name="user x" />}
       </Table.Cell>
       <Table.Cell>

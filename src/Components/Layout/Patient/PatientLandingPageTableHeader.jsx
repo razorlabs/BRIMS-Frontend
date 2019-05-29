@@ -23,6 +23,7 @@ const PatientTableHeader = () => (
       <Table.HeaderCell>ID</Table.HeaderCell>
       <Table.HeaderCell>PID</Table.HeaderCell>
       <Table.HeaderCell>External ID</Table.HeaderCell>
+      <Table.HeaderCell>System Source</Table.HeaderCell>
       <Table.HeaderCell>Synced</Table.HeaderCell>
       <Table.HeaderCell>SyncDate</Table.HeaderCell>
     </Table.Row>
