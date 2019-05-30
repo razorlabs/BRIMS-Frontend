@@ -1,14 +1,7 @@
 import React from 'react';
 import { Checkbox, Dropdown, Input, Form, Button, Container, Table, Modal } from 'semantic-ui-react';
 import gql from 'graphql-tag';
-
-export const ADD_CONTAINER = gql`
-  mutation createContainer($name: String!) {
-    createContainer(name: $name) {
-      name
-    }
-  }
-`;
+import { ADD_CONTAINER } from '../../Data/BoxMutation';
 
 const BuildBox = (props) => {
   const returnBox = [];

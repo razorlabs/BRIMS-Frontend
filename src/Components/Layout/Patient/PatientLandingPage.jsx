@@ -1,10 +1,29 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { Button, Icon, Segment, Header, Dimmer, Loader, Table } from 'semantic-ui-react';
+import { Form, Modal, Button, Icon, Segment, Header, Dimmer, Loader, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PageMenu from '../PageMenu';
 import { GET_ALL_PATIENTS } from '../../Data/PatientQueryData';
 
+
+const AddPatientModal = () => (
+  <Modal trigger={<Button floated="right">Add Patient</Button>}>
+    <Modal.Header>Add Patient</Modal.Header>
+    <Modal.Content>
+      <Form>
+        <Form.Field>
+          <label>PID</label>
+          <input placeholder="PID" />
+        </Form.Field>
+        <Form.Field>
+          <label>External ID</label>
+          <input placeholder="External ID" />
+        </Form.Field>
+        <Button type="submit">Submit</Button>
+      </Form>
+    </Modal.Content>
+  </Modal>
+);
 /*
   Header values for the patient table for patient landing page
 
@@ -78,7 +97,7 @@ class PatientLandingPage extends React.Component {
           </Table.Body>
         </Table>
         <Segment basic>
-          <Button floated="right">Add Patient</Button>
+          <AddPatientModal />
         </Segment>
       </div>
     );
