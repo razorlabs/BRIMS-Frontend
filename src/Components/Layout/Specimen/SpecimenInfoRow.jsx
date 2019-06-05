@@ -1,7 +1,7 @@
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import moment from 'moment';
 /*
   Displays information regarding specimen in row format
   Still needs to implement # of Tubes on line 20 and
@@ -16,7 +16,7 @@ class SpecimenInfoRow extends React.Component {
     return (
       <Table.Row>
         <Table.Cell>
-          {this.props.specimen.collectdate}
+          { moment(this.props.specimen.collectdate).format('YYYY-MMM-DD') }
         </Table.Cell>
         <Table.Cell>
           {this.props.specimen.collecttime}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 class AliquotInfoRow extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class AliquotInfoRow extends React.Component {
           {this.props.aliquot.visit}
         </Table.Cell>
         <Table.Cell>
-          {this.props.aliquot.collectdate}
+          { moment(this.props.aliquot.collectdate).format('YYYY-MMM-DD') }
         </Table.Cell>
         <Table.Cell>
           {this.props.aliquot.collecttime}
