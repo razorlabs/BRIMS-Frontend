@@ -4,6 +4,9 @@ import React from 'react';
 import { graphql } from 'react-apollo';
 import { SEARCH_SPECIMEN } from '../Data/SpecimenQueryData';
 
+/*
+  helpful resources: https://medium.com/open-graphql/implementing-search-in-graphql-11d5f71f179
+*/
 
 function debounce(func, wait) {
   let timeout;
@@ -18,14 +21,14 @@ class SearchDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      patient: '222',
+      patient: '',
     };
   }
 
-  onChange = (e) => {
-    const value = e.target.value;
-    this.handleFilter(value);
-    console.log(this.props)
+  onChange = (event) => {
+    // const value = event.target.value;
+    this.setState({ patient: event.target.value });
+    this.handleFilter(event.target.value);
   }
 
   handleFilter = debounce((val) => {
@@ -43,7 +46,7 @@ class SearchDisplay extends React.Component {
       <div>
         <Input
           placeholder="Search.."
-          value={this.patient}
+          value={this.state.patient}
           onChange={this.onChange.bind(this)}
         />
         { this.state.patient }
