@@ -2,6 +2,12 @@ import { Table } from 'semantic-ui-react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/*
+   evaluate converting to map in the future currently avoiding in case of side
+   effects on hidden prop values but potentially possible to move those prop
+   values to alias to avoid conflict
+*/
+
 class PendingReceivingInfoRow extends React.Component {
   render() {
     return (
