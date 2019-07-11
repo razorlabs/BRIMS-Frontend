@@ -1,10 +1,12 @@
-import { Search, Label } from 'semantic-ui-react';
+import { Table, Input } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { graphql } from 'react-apollo';
 import { SEARCH_SPECIMEN } from '../Data/SpecimenQueryData';
 
 /*
-  helpful resources: https://medium.com/open-graphql/implementing-search-in-graphql-11d5f71f179
+	helpful reference: https://medium.com/open-graphql/implementing-search-in-graphql-11d5f71f179
+    also : https://github.com/apollographql/react-apollo/issues/1564
 */
 
 function debounce(func, wait) {
@@ -16,29 +18,23 @@ function debounce(func, wait) {
   };
 }
 
-const resultRenderer = ({ pid }) => <Label basic content={pid} />
-
 class SearchDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      patient: '',
-      results: [],
+      patient: '33',
     };
   }
 
-  onChange = (event) => {
-    // const value = event.target.value;
-    this.setState({ patient: event.target.value });
-    this.handleFilter(event.target.value);
-    this.setState({ results: this.props.pids });
+  onChange = (e) => {
+    const value = e.target.value;
+    this.handleFilter(value);
   }
 
   handleFilter = debounce((val) => {
     this.props.onSearch(val);
+    console.log(this.props);
   }, 250)
-
-  handleResultSelect = (event, { result }) => this.setState({ patient: result.pid })
 
   render() {
     if (this.props.loading) {
@@ -47,27 +43,25 @@ class SearchDisplay extends React.Component {
     if (this.props.error) {
       return <p> Error </p>;
     }
+    console.log(this.props.pids);
     return (
       <div>
-        <Search
+        <Input
           placeholder="Search.."
-          onResultSelect={this.handleResultSelect}
-          value={this.state.patient}
-          onSearchChange={this.onChange.bind(this)}
-          results={this.props.pids}
-          resultRenderer={resultRenderer}
-          {...this.props}
+          value={this.patient}
+          onChange={this.onChange.bind(this)}
         />
         { this.state.patient }
+        { this.props.pids.map(x => <div>{ x.pid }</div>) }
       </div>
     );
   }
 }
 
-const ExampleSearch = graphql(SEARCH_SPECIMEN, {
+const Search = graphql(SEARCH_SPECIMEN, {
   options: props => ({
     variables: {
-      patient: '',
+      patient: toString(props.patient),
     },
   }),
   props: props => ({
@@ -77,7 +71,11 @@ const ExampleSearch = graphql(SEARCH_SPECIMEN, {
           patient,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => ({
-          searchSpecimen: fetchMoreResult.searchSpecimen,
+          ...previousResult,
+          pids: {
+            ...previousResult.searchSpecimen,
+            pids: fetchMoreResult.searchSpecimen,
+          },
         }),
       });
     },
@@ -87,4 +85,4 @@ const ExampleSearch = graphql(SEARCH_SPECIMEN, {
   }),
 })(SearchDisplay);
 
-export default ExampleSearch;
+export default Search;

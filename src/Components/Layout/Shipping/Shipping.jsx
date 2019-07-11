@@ -1,8 +1,8 @@
 import { Tab, Container } from 'semantic-ui-react';
 import React from 'react';
 import PageMenu from '../PageMenu';
-import PendingReceivingWithData from '../../Route/PendingReceivingWithData';
-import PendingShippingWithData from '../../Route/PendingShippingWithData';
+import PendingReceivingWithData from './PendingReceiving';
+import PendingShippingWithData from './PendingShipping';
 
 
 class ShippingCombined extends React.Component {

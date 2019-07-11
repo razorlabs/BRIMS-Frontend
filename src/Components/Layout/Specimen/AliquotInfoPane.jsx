@@ -1,8 +1,10 @@
 import { Table, Loader, Dimmer } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { graphql } from 'react-apollo';
 import AliquotTableHeader from './AliquotTableHeader';
 import AliquotInfoRow from './AliquotInfoRow';
+import { GET_ALIQUOT_BY_SPECIMEN_ID } from '../../Data/SpecimenQueryData';
 
 class AliquotInfoPane extends React.Component {
   render() {
@@ -32,4 +34,13 @@ AliquotInfoPane.propTypes = {
   }).isRequired,
 };
 
-export default AliquotInfoPane;
+const AliquotInfoPaneWithData = graphql(GET_ALIQUOT_BY_SPECIMEN_ID, {
+  options: props => ({
+    variables: {
+      specimenid: (props.specimenid),
+    },
+  }),
+})(AliquotInfoPane);
+
+
+export default AliquotInfoPaneWithData;

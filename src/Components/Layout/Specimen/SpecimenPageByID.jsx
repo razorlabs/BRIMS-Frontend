@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
-import PageMenu from '../Layout/PageMenu';
-import PatientInfoPaneWithData from './PatientInfoPaneWithData';
-import SpecimenInfoPaneWithData from './SpecimenInfoPaneWithData';
+import PageMenu from '../PageMenu';
+import PatientInfoPaneWithData from './PatientInfoPane';
+import SpecimenInfoPaneWithData from './SpecimenInfoPane';
 
 class SpecimenPageByID extends React.Component {
   render() {

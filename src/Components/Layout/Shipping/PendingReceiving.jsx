@@ -1,7 +1,9 @@
 import { Tab, Table, Dimmer, Loader } from 'semantic-ui-react';
+import { graphql } from 'react-apollo';
 import React from 'react';
 import PendingReceivingHeader from './PendingReceivingHeader';
 import PendingReceivingInfoRow from './PendingReceivingInfoRow';
+import { GET_PENDING_RECEIVING } from '../../Data/ShippingQueryData';
 
 class PendingReceiving extends React.Component {
   render() {
@@ -24,4 +26,5 @@ class PendingReceiving extends React.Component {
   }
 }
 
-export default PendingReceiving;
+const PendingReceivingWithData = graphql(GET_PENDING_RECEIVING)(PendingReceiving);
+export default PendingReceivingWithData;

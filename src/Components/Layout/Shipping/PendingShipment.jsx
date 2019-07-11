@@ -1,7 +1,9 @@
 import { Tab, Table, Dimmer, Loader } from 'semantic-ui-react';
+import { graphql } from 'react-apollo';
 import React from 'react';
 import PendingShipmentHeader from './PendingShipmentHeader';
 import PendingShipmentInfoRow from './PendingShipmentInfoRow';
+import { GET_PENDING_SHIPMENTS } from '../../Data/ShippingQueryData';
 
 class PendingShipment extends React.Component {
   render() {
@@ -24,4 +26,6 @@ class PendingShipment extends React.Component {
   }
 }
 
-export default PendingShipment;
+const PendingShippingWithData = graphql(GET_PENDING_SHIPMENTS)(PendingShipment);
+
+export default PendingShippingWithData;

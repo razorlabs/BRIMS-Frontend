@@ -1,10 +1,12 @@
 import { Segment, Label, Container, Tab, Table, Loader, Dimmer } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { graphql } from 'react-apollo';
 import SpecimenTableHeader from './SpecimenTableHeader';
 import SpecimenInfoRow from './SpecimenInfoRow';
 import AddSpecimenModalMutation from './AddSpecimenModal';
-import AliquotInfoPaneWithData from '../../Route/AliquotInfoPaneWithData';
+import AliquotInfoPaneWithData from './AliquotInfoPane';
+import { GET_SPECIMEN_BY_PATIENT_ID } from '../../Data/SpecimenQueryData';
 
 
 /* A helper function to build the semantic-ui Tab panes
@@ -82,4 +84,13 @@ SpecimenInfoPane.propTypes = {
   }).isRequired,
 };
 
-export default SpecimenInfoPane;
+const SpecimenInfoPaneWithData = graphql(GET_SPECIMEN_BY_PATIENT_ID, {
+  options: props => ({
+    variables: {
+      patientid: (props.patientid),
+    },
+  }),
+})(SpecimenInfoPane);
+
+
+export default SpecimenInfoPaneWithData;
