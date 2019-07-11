@@ -1,5 +1,24 @@
 import gql from 'graphql-tag';
 
+export const SEARCH_SPECIMEN = gql`
+  query($patient: String!) {
+    searchSpecimen(patient: $patient)
+    {
+      pid
+    }
+  }
+`;
+
+export const GET_SPECIMEN_TYPES = gql`
+  {
+    allSpecimenTypes {
+      id
+      type
+    }
+  }
+`;
+
+
 export const GET_ALL_SPECIMEN = gql`
   {
     allSpecimen {
