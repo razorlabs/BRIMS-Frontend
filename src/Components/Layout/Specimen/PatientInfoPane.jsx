@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Input, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
-
+import { graphql } from 'react-apollo';
+import { GET_PATIENT_BY_ID } from '../../Data/PatientQueryData';
 
 class ListInputSwitch extends React.Component {
   constructor(props) {
@@ -122,4 +123,12 @@ PatientInfoPane.propTypes = {
   }).isRequired,
 };
 
-export default PatientInfoPane;
+const PatientInfoPaneWithData = graphql(GET_PATIENT_BY_ID, {
+  options: props => ({
+    variables: {
+      patientid: (props.patientid),
+    },
+  }),
+})(PatientInfoPane);
+
+export default PatientInfoPaneWithData;
