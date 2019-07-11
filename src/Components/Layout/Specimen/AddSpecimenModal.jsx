@@ -3,10 +3,10 @@ import React from 'react';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
 
 import gql from 'graphql-tag';
+import moment from 'moment';
 import { graphql, compose } from 'react-apollo';
 import { ADD_SPECIMEN } from '../../Data/SpecimenMutations';
-import { GET_SPECIMEN_TYPES } from '../../Data/SpecimenQueryData';
-
+import { GET_SPECIMEN_TYPES, GET_SPECIMEN_BY_PATIENT_ID } from '../../Data/SpecimenQueryData';
 /*
   The Add Specimen Modal inherents the target patient via a props pass and
   composes two graphql calls, one for querying types of specimen as part of
@@ -23,26 +23,27 @@ class AddSpecimenModal extends React.Component {
       date: '',
       time: '',
       notes: '',
+      modalOpen: false,
     };
     this.handleChange = this.handleChange.bind(this);
-    console.log(this.props);
   }
 
   handleChange = (event, { name, value }) => this.setState({ [name]: value })
+  handleOpen = () => this.setState({ modalOpen: true })
+  handleClose = () => this.setState({ modalOpen: false })
 
   handleSubmit = () => {
-    console.log(this.props);
-    console.log(this.state);
-    /* this.props.mutate({
+    this.props.mutate({
       variables: {
-        patient: 1,
-        specimentype: 'Whole Blood',
-        volume: 10,
-        collectDate: '2019-07-07',
-        collectTime: '23:19:03',
-        notes: 'Added from modal',
+        patient: this.props.patientid,
+        specimentype: this.state.type,
+        volume: this.state.volume,
+        collectDate: moment(this.state.date, 'YYYY-MMM-DD').format('YYYY-MM-DD'),
+        collectTime: this.state.time,
+        notes: this.state.notes,
       },
-    }); */
+    });
+    this.handleClose();
   }
 
   render() {
@@ -57,7 +58,11 @@ class AddSpecimenModal extends React.Component {
       listdict = this.props.alltypes.map(x => ({ key: x.type, value: x.id, text: x.type }));
     }
     return (
-      <Modal trigger={<Button floated="right">Add Specimen</Button>}>
+      <Modal
+        trigger={<Button onClick={this.handleOpen} floated="right">Add Specimen</Button>}
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+      >
         <Modal.Header>Add Specimen</Modal.Header>
         <Modal.Content>
           <Form onSubmit={this.handleSubmit}>
@@ -131,6 +136,7 @@ const AddSpecimen = graphql(ADD_SPECIMEN, {
     variables: {
       patient: props.patientid,
     },
+    refetchQueries: [GET_SPECIMEN_BY_PATIENT_ID],
   }),
 });
 
