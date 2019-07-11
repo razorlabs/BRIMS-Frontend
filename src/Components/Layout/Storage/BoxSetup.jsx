@@ -1,7 +1,5 @@
 import React from 'react';
-import { Checkbox, Dropdown, Input, Form, Button, Container, Table, Modal } from 'semantic-ui-react';
-import gql from 'graphql-tag';
-import { ADD_CONTAINER } from '../../Data/BoxMutation';
+import { Checkbox, Dropdown, Input, Form, Button, Table, Modal } from 'semantic-ui-react';
 
 const BuildBox = (props) => {
   const returnBox = [];
@@ -9,7 +7,6 @@ const BuildBox = (props) => {
   let lengthHeader = [];
   let heightHeader = [];
   const tablelengthHeader = [];
-  const tableheightHeader = [];
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
   if (props.heightlabel === 'numeric') {

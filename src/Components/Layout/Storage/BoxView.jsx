@@ -1,8 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
-import PropTypes from 'prop-types';
-import { Header, Modal, Table, Button, Input, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
+import { Header, Modal, Table, Button, Segment, Loader, Dimmer } from 'semantic-ui-react';
 
 export const GET_BOX_CONTENT = gql`
     query($boxid: Int!) {
@@ -42,7 +41,6 @@ const BuildBoxView = (props) => {
   let lengthHeader = [];
   let heightHeader = [];
   const tablelengthHeader = [];
-  const tableheightHeader = [];
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
   const allslot = JSON.parse((props.allslot));
 
@@ -76,12 +74,11 @@ const BuildBoxView = (props) => {
 
   for (let j = 0; j < props.height; j += 1) {
     let cells = [];
-    let content;
     tablelengthHeader.push(<Table.HeaderCell textAlign="center" width={4} celled>{lengthHeader[j]}</Table.HeaderCell>);
     cellsCount.push(<Table.Cell />);
     for (let i = 0; i < props.length; i += 1) {
       if (allslot[heightHeader[j]] !== undefined && allslot[heightHeader[j]][lengthHeader[i]] !== undefined) {
-        cells.push(<Table.Cell selectable ><a href="#">{allslot[heightHeader[j]][lengthHeader[i]]}</a></Table.Cell>);
+        cells.push(<Table.Cell selectable ><a href={allslot[heightHeader[j]][lengthHeader[i]]}>{allslot[heightHeader[j]][lengthHeader[i]]}</a></Table.Cell>);
       }
       else {
         cells.push(
