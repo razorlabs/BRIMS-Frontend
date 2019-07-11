@@ -2,7 +2,7 @@ import { Tab, Container } from 'semantic-ui-react';
 import React from 'react';
 import PageMenu from '../PageMenu';
 import PendingReceivingWithData from './PendingReceiving';
-import PendingShippingWithData from './PendingShipping';
+import PendingShippingWithData from './PendingShipment';
 
 
 class ShippingCombined extends React.Component {
