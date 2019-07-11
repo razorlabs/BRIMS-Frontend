@@ -1,5 +1,4 @@
-import { Table, Input } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import { Search, Label } from 'semantic-ui-react';
 import React from 'react';
 import { graphql } from 'react-apollo';
 import { SEARCH_SPECIMEN } from '../Data/SpecimenQueryData';
@@ -17,11 +16,14 @@ function debounce(func, wait) {
   };
 }
 
+const resultRenderer = ({ pid }) => <Label basic content={pid} />
+
 class SearchDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       patient: '',
+      results: [],
     };
   }
 
@@ -29,11 +31,14 @@ class SearchDisplay extends React.Component {
     // const value = event.target.value;
     this.setState({ patient: event.target.value });
     this.handleFilter(event.target.value);
+    this.setState({ results: this.props.pids });
   }
 
   handleFilter = debounce((val) => {
     this.props.onSearch(val);
   }, 250)
+
+  handleResultSelect = (event, { result }) => this.setState({ patient: result.pid })
 
   render() {
     if (this.props.loading) {
@@ -44,19 +49,22 @@ class SearchDisplay extends React.Component {
     }
     return (
       <div>
-        <Input
+        <Search
           placeholder="Search.."
+          onResultSelect={this.handleResultSelect}
           value={this.state.patient}
-          onChange={this.onChange.bind(this)}
+          onSearchChange={this.onChange.bind(this)}
+          results={this.props.pids}
+          resultRenderer={resultRenderer}
+          {...this.props}
         />
         { this.state.patient }
-        { this.props.pids.map(x => <div>{ x.pid }</div>) }
       </div>
     );
   }
 }
 
-const Search = graphql(SEARCH_SPECIMEN, {
+const ExampleSearch = graphql(SEARCH_SPECIMEN, {
   options: props => ({
     variables: {
       patient: '',
@@ -75,8 +83,8 @@ const Search = graphql(SEARCH_SPECIMEN, {
     },
     error: props.data.error,
     loading: props.data.loading,
-    pids: props.data.searchSpecimen
+    pids: props.data.searchSpecimen,
   }),
 })(SearchDisplay);
 
-export default Search;
+export default ExampleSearch;
