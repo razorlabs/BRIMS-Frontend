@@ -131,12 +131,20 @@ const SpecimenPickerData = graphql(GET_SPECIMEN_TYPES, {
   }),
 });
 
+const refetchQuery = graphql(GET_SPECIMEN_BY_PATIENT_ID, {
+  options: props => ({
+    variables: {
+      patientid: (props.patientid),
+    },
+  }),
+});
+
 const AddSpecimen = graphql(ADD_SPECIMEN, {
   options: props => ({
     variables: {
       patient: props.patientid,
     },
-    refetchQueries: [GET_SPECIMEN_BY_PATIENT_ID],
+    refetchQueries: () => [{ query: GET_SPECIMEN_BY_PATIENT_ID, variables: { patientid: props.patientid } }],
   }),
 });
 
