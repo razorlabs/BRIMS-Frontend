@@ -17,3 +17,12 @@ export const GET_ALL_SCHEDULE = gql`
     }
   }
 `;
+
+export const GET_ALL_VISITS = gql`
+ {
+    allVisits {
+      id
+      label
+    }
+  }
+`;
