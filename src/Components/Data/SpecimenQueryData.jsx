@@ -9,6 +9,16 @@ export const SEARCH_SPECIMEN = gql`
   }
 `;
 
+export const GET_ALIQUOT_TYPES = gql`
+  {
+    allAliquotTypes {
+      id
+      type
+    }
+  }
+`;
+
+
 export const GET_SPECIMEN_TYPES = gql`
   {
     allSpecimenTypes {
