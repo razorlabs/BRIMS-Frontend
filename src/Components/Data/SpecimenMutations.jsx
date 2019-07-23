@@ -25,3 +25,33 @@ export const ADD_SPECIMEN = gql`
        }
     }
 `;
+
+export const ADD_ALIQUOT = gql`
+  mutation createAliquot(
+    $specimenid: Int!,
+    $aliquottype: Int!,
+    $visit: Int!,
+    $volume: Float!,
+    $collectdate: Date!,
+    $collecttime: Time!,
+    $notes: String!,
+    $times: Int!)
+    {
+      createAliquot(
+        specimenid:$specimenid,
+        aliquottype: $aliquottype,
+        visit: $visit,
+        volume: $volume,
+        collectdate: $collectdate,
+        collecttime: $collecttime,
+        notes: $notes,
+        times: $times,) {
+          aliquottype
+          visit
+          volume
+          collectdate
+          collecttime
+          notes
+       }
+    }
+`;
