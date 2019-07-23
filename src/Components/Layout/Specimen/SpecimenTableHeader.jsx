@@ -10,7 +10,7 @@ const SpecimenTableHeader = () => (
       <Table.HeaderCell># of Tubes</Table.HeaderCell>
       <Table.HeaderCell>Volume</Table.HeaderCell>
       <Table.HeaderCell>Storage</Table.HeaderCell>
-      <Table.HeaderCell>Available to Aliquot <Icon color="blue" name="plus circle" link="/" /></Table.HeaderCell>
+      <Table.HeaderCell>Available to Aliquot</Table.HeaderCell>
     </Table.Row>
   </Table.Header>
 );
