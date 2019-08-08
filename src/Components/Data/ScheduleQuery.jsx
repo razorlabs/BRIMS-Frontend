@@ -12,6 +12,7 @@ export const GET_ALL_EVENTS = gql`
 export const GET_ALL_SCHEDULE = gql`
  {
     allSchedules {
+      id
       name
       schedule
     }
