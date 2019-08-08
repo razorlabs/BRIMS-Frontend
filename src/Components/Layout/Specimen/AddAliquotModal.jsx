@@ -1,7 +1,6 @@
 import React from 'react';
-import { Dropdown, Modal, Form, Button, Icon } from 'semantic-ui-react';
+import { Dropdown, Modal, Form, Icon } from 'semantic-ui-react';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
-import gql from 'graphql-tag';
 import moment from 'moment';
 import { graphql, compose } from 'react-apollo';
 import { ADD_ALIQUOT } from '../../Data/SpecimenMutations';
@@ -176,7 +175,10 @@ const AddAliquot = graphql(ADD_ALIQUOT, {
     variables: {
       specimenid: props.specimenid,
     },
-    refetchQueries: () => [{ query: GET_ALIQUOT_BY_SPECIMEN_ID, variables: { specimenid: props.specimenid } }],
+    refetchQueries: () => [{
+      query: GET_ALIQUOT_BY_SPECIMEN_ID,
+      variables: { specimenid: props.specimenid },
+    }],
   }),
 });
 
