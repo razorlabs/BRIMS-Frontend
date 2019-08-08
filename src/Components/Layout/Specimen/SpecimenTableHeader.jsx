@@ -1,4 +1,4 @@
-import { Table, Icon } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import React from 'react';
 
 /* Header values for the specimen table */

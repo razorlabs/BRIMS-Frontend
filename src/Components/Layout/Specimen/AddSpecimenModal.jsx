@@ -2,7 +2,6 @@ import { Dropdown, Modal, Form, Button } from 'semantic-ui-react';
 import React from 'react';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
 
-import gql from 'graphql-tag';
 import moment from 'moment';
 import { graphql, compose } from 'react-apollo';
 import { ADD_SPECIMEN } from '../../Data/SpecimenMutations';

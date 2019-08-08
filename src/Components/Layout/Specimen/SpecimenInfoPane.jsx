@@ -39,10 +39,6 @@ function BuildPanes(type, id, specimen) {
 }
 
 class SpecimenInfoPane extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (this.props.data.loading) {
       return <Dimmer active> <Loader /> </Dimmer>;
