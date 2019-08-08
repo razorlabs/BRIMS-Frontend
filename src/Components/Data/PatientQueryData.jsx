@@ -22,3 +22,16 @@ export const GET_ALL_PATIENTS = gql`
     }
   }
 `;
+
+export const GET_ALL_PATIENTS_PAGINATION = gql`
+  query($first: Int, $skip: Int) {
+    allPatients(first: $first, skip: $skip) {
+      id
+      pid
+      externalId
+      source
+      synced
+      syncDate
+    }
+  }
+`;
