@@ -43,7 +43,7 @@ class AddPatientModal extends React.Component {
     }
     return (
       <Modal
-        trigger={<Button onClick={this.handleOpen} floated="right">Add Patient</Button>}
+        trigger={<Button onClick={this.handleOpen} >Add Patient</Button>}
         open={this.state.modalOpen}
         onClose={this.handleClose}
       >

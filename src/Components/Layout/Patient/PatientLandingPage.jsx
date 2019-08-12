@@ -1,29 +1,11 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { Form, Modal, Button, Icon, Segment, Header, Dimmer, Loader, Table } from 'semantic-ui-react';
+import { Grid, Input, Pagination, Icon, Segment, Header, Dimmer, Loader, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PageMenu from '../PageMenu';
 import { GET_ALL_PATIENTS } from '../../Data/PatientQueryData';
+import AddPatientModalMutation from './AddPatientModal';
 
-
-const AddPatientModal = () => (
-  <Modal trigger={<Button floated="right">Add Patient</Button>}>
-    <Modal.Header>Add Patient</Modal.Header>
-    <Modal.Content>
-      <Form>
-        <Form.Field>
-          <label>PID</label>
-          <input placeholder="PID" />
-        </Form.Field>
-        <Form.Field>
-          <label>External ID</label>
-          <input placeholder="External ID" />
-        </Form.Field>
-        <Button type="submit">Submit</Button>
-      </Form>
-    </Modal.Content>
-  </Modal>
-);
 /*
   Header values for the patient table for patient landing page
 
@@ -32,7 +14,7 @@ const AddPatientModal = () => (
   While we could map over the values coming from graphql
     1) Unwanted objects sneak in that are useful but not as table headers
     2) It is currently overengineering and otherwise opaque
-    (table headers would be edited in schema)
+       (table headers would be edited in schema)
 
   If there are a large number of table changes that happen in the future then
   mapping over the values to create the header should be revisited
@@ -54,6 +36,41 @@ const PatientTableHeader = () => (
 );
 
 class PatientLandingPage extends React.Component {
+  // page used to slice all patients array for display
+  // if moved to backend search will be limited to returned patient scope
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 1,
+      search: '',
+      results: '',
+    };
+  }
+
+  onChange = (e) => {
+    const re = new RegExp(e.target.value, 'i');
+    const results = this.props.patients.filter(patient => re.test(patient.pid));
+    this.setState({
+      search: e.target.value,
+      results: results,
+      page: 1,
+    });
+    this.totalPages(results);
+  }
+
+  handlePageChange = (e, { activePage }) => {
+    this.setState({ page: activePage });
+  }
+
+
+  totalPages = (results) => {
+    if (results === '') {
+      return (Math.ceil(this.props.patients.length / 10));
+    }
+    return (Math.ceil(results.length / 10));
+  };
+
+
   buildTable = item => (
     <Table.Row>
       <Table.Cell>
@@ -77,38 +94,87 @@ class PatientLandingPage extends React.Component {
     </Table.Row>
   )
 
-  render() {
+    render() {
     if (this.props.loading) {
       return <Dimmer active> <Loader /> </Dimmer>;
     }
     if (this.props.error) {
       return <p> Error! </p>;
     }
+    const allpatients = this.props.patients;
+    let tablebody;
+
+    if (this.state.results === '') {
+      tablebody = allpatients.slice(
+        (this.state.page - 1) * 10,
+        ((this.state.page - 1) * 10) + 10,
+      ).map(x => this.buildTable(x));
+    } else {
+      tablebody = this.state.results.slice(
+        (this.state.page - 1) * 10,
+        ((this.state.page - 1) * 10) + 10,
+      ).map(x => this.buildTable(x));
+    }
+
+
     return (
       <div>
         <PageMenu />
-        <Segment compact basic color="yellow">
-          <Header as="h1"> Patients </Header>
-        </Segment>
+        <Grid divided="vertically">
+          <Grid.Row columns={5}>
+            <Grid.Column>
+              <Segment compact basic color="yellow">
+                <Header as="h1"> Patients </Header>
+              </Segment>
+            </Grid.Column>
+            <Grid.Column />
+            <Grid.Column width={9} textAlign="right">
+              <Input
+                placeholder="Search Patient"
+                value={this.search}
+                onChange={this.onChange}
+              >
+                <input style={{ borderRadius: '100px' }} />
+              </Input>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
         <Table celled color="yellow">
           <PatientTableHeader />
           <Table.Body>
-            { this.props.patient.map(x => this.buildTable(x)) }
+            {tablebody}
           </Table.Body>
         </Table>
-        <Segment basic>
-          <AddPatientModal />
-        </Segment>
+        <Grid divided="vertically">
+          <Grid.Row columns={6}>
+            <Grid.Column>
+              <Pagination
+                boundaryRange={0}
+                activePage={this.state.page}
+                ellipsisItem={null}
+                totalPages={this.totalPages(this.state.results)}
+                onPageChange={this.handlePageChange}
+              />
+            </Grid.Column>
+            <Grid.Column />
+            <Grid.Column />
+            <Grid.Column />
+            <Grid.Column />
+            <Grid.Column>
+              <AddPatientModalMutation />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
 }
 
 const PatientLandingPageWithData = graphql(GET_ALL_PATIENTS, {
-  props: ({ data }) => ({
-    error: data.error,
-    loading: data.loading,
-    patient: data.allPatients,
+  props: props => ({
+    error: props.data.error,
+    loading: props.data.loading,
+    patients: props.data.allPatients,
   }),
 })(PatientLandingPage);
 
