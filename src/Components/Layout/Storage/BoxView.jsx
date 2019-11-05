@@ -13,8 +13,6 @@ export const GET_BOX_TYPE = gql`
     query($boxid: Int!) {
       boxType(id: $boxid){
         id
-        name
-        description
         length
         height
         lengthLabel
@@ -42,7 +40,6 @@ const BuildBoxView = (props) => {
   let heightHeader = [];
   const tablelengthHeader = [];
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-  const allslot = JSON.parse((props.allslot));
 
   for (let j = 0; j < props.height; j += 1) {
     if (props.heightLabel === 'NUMERIC') {
@@ -77,8 +74,8 @@ const BuildBoxView = (props) => {
     tablelengthHeader.push(<Table.HeaderCell textAlign="center" width={4} celled>{lengthHeader[j]}</Table.HeaderCell>);
     cellsCount.push(<Table.Cell />);
     for (let i = 0; i < props.length; i += 1) {
-      if (allslot[heightHeader[j]] !== undefined && allslot[heightHeader[j]][lengthHeader[i]] !== undefined) {
-        cells.push(<Table.Cell selectable ><a href={allslot[heightHeader[j]][lengthHeader[i]]}>{allslot[heightHeader[j]][lengthHeader[i]]}</a></Table.Cell>);
+      if (props.allslot[heightHeader[j]] !== undefined && props.allslot[heightHeader[j]][lengthHeader[i]] !== undefined) {
+        cells.push(<Table.Cell selectable ><a href={props.allslot[heightHeader[j]][lengthHeader[i]]}>{props.allslot[heightHeader[j]][lengthHeader[i]]}</a></Table.Cell>);
       }
       else {
         cells.push(
@@ -116,16 +113,17 @@ class BoxView extends React.Component {
     if (this.props.errorboxtype || this.props.errorallSlots) {
       return <p> Error! </p>;
     }
+    const allslotJson = JSON.parse((this.props.allSlots));
     return (
       <div>
         <Segment.Group compact>
           <Segment>
             <Header size="medium">
-              Name: {this.props.name}
+              Name: {allslotJson.name}
             </Header>
           </Segment>
           <Segment>
-            Description: {this.props.description}
+            Description: {allslotJson.description}
           </Segment>
           <Segment>
             <BuildBoxView
@@ -135,7 +133,7 @@ class BoxView extends React.Component {
               heightLabel={this.props.heightLabel}
               lengthInverted={this.props.lengthInverted}
               heightInverted={this.props.heightInverted}
-              allslot={this.props.allSlots}
+              allslot={allslotJson}
             />
           </Segment>
         </Segment.Group>
@@ -147,7 +145,7 @@ class BoxView extends React.Component {
 const BoxTypeData = graphql(GET_BOX_TYPE, {
   options: props => ({
     variables: {
-      boxid: 1,
+      boxid: (props.boxid),
     },
   }),
   props: ({ data }) => ({
@@ -160,7 +158,7 @@ const BoxTypeData = graphql(GET_BOX_TYPE, {
 const ContentData = graphql(GET_BOX_CONTENT, {
   options: props => ({
     variables: {
-      boxid: 1,
+      boxid: (props.boxid),
     },
   }),
   props: ({ data }) => ({
