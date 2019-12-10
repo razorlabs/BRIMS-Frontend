@@ -4,23 +4,8 @@ import gql from 'graphql-tag';
 import React from 'react';
 import PageMenu from '../PageMenu';
 import BoxViewWithData from './BoxView';
-
-export const GET_STORAGE_UI = gql`
-  {
-    storageUi {
-      key
-      title
-      content {
-        name
-      }
-      cssIcon
-      boxes {
-        id
-      }
-      topLevel
-    }
-  }
-`;
+import { GET_STORAGE_UI } from '../../Data/StorageQuery';
+import AddStorageModalMutation from './AddStorageModal';
 
 const BuildAccordion = (props) => {
   /*
@@ -136,6 +121,7 @@ class StorageSetup extends React.Component {
     return (
       <div>
         <PageMenu />
+        <AddStorageModalMutation />
         <BuildAccordion storageUI={this.props.storageUI} />
       </div>
     );
