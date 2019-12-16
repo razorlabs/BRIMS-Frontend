@@ -19,3 +19,13 @@ export const ADD_STORAGE = gql`
         }
     }
 `;
+
+export const DELETE_STORAGE = gql`
+  mutation deleteStorage($id: int!)
+    {
+      deleteStorage(id: $id) {
+        id
+        deleted
+      }
+    }
+`;
