@@ -1,11 +1,11 @@
-import { Grid, Accordion, Dimmer, Loader } from 'semantic-ui-react';
+import { Accordion, Dimmer, Loader } from 'semantic-ui-react';
 import { graphql, compose } from 'react-apollo';
-import gql from 'graphql-tag';
 import React from 'react';
 import PageMenu from '../PageMenu';
 import BoxViewWithData from './BoxView';
 import { GET_STORAGE_UI } from '../../Data/StorageQuery';
 import AddStorageModalMutation from './AddStorageModal';
+//  TODO add delete button
 
 const BuildAccordion = (props) => {
   /*
