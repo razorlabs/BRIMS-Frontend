@@ -8,11 +8,11 @@ import { ApolloProvider } from 'react-apollo';
 import LandingPage from './Components/Layout/LandingPage';
 import SpecimenLandingPage from './Components/Layout/Specimen/SpecimenLandingPage';
 import Shipping from './Components/Layout/Shipping/Shipping';
-import Query from './Components/Layout/Query';
+import DisplayQueryWithData from './Components/Layout/Query/Query';
 import ActionItems from './Components/Layout/ActionItems';
 import Authenticate from './Components/Layout/login/Auth';
 import SpecimenPageByID from './Components/Layout/Specimen/SpecimenPageByID';
-import NewStorageSetup from './Components/Layout/Storage/StorageLandingPage';
+import StorageWithData from './Components/Layout/Storage/StorageLandingPage';
 import BoxSetup from './Components/Layout/Storage/BoxSetup';
 import BoxViewWithData from './Components/Layout/Storage/BoxView';
 import DrawSchedulingWithData from './Components/Layout/Schedule/DrawScheduleLandingPage';
@@ -23,7 +23,7 @@ import Patient from './Components/Layout/Patient/PatientLandingPage';
 let csrftoken;
 async function getCsrfToken() {
   if (csrftoken) return csrftoken;
-  csrftoken = await fetch('<csrf backend portal>')
+  csrftoken = await fetch('http://10.10.10.190:8000/csrf/')
     .then(response => response.json())
     .then(data => data.csrftoken);
   return await csrftoken;
@@ -31,7 +31,7 @@ async function getCsrfToken() {
 
 // See https://github.com/graphql-python/graphene-django/issues/593
 const client = new ApolloClient({
-  uri: '<uri>',
+  uri: 'http://10.10.10.190:8000/graphql/',
   request: async (operation) => {
     const newcsrftoken = await getCsrfToken();
     // set the cookie 'csrftoken'
@@ -65,8 +65,8 @@ class App extends Component {
                 <Route path={`${process.env.PUBLIC_URL}/lims/specimen/:id`} component={SpecimenPageByID} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/shipping`} component={Shipping} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/schedule`} component={DrawSchedulingWithData} />
-                <Route path={`${process.env.PUBLIC_URL}/lims/query`} component={Query} />
-                <Route path={`${process.env.PUBLIC_URL}/lims/storage`} component={NewStorageSetup} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/query`} component={DisplayQueryWithData} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/storage`} component={StorageWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxsetup`} component={BoxSetup} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxview`} component={BoxViewWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/action`} component={ActionItems} />
