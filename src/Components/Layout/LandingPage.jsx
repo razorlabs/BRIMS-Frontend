@@ -18,24 +18,12 @@ export default class LandingPage extends React.Component {
         href: '/lims/shipping',
       },
       {
-        header: 'Query',
-        description: 'Search Tool',
-        color: 'green',
-        href: '/lims/query',
-      },
-      {
         header: 'Storage Setup',
         description: 'Set up Storage',
         color: 'orange',
         href: '/lims/storage',
       },
-      {
-        header: 'Action Items',
-        description: 'Items pending action',
-        color: 'teal',
-        href: '/lims/action',
-      },
-      {
+     {
         header: 'Draw Scheduling',
         description: 'Add Specimen Types Draw Schedules',
         color: 'violet',
@@ -53,7 +41,7 @@ export default class LandingPage extends React.Component {
       <div>
         <PageMenu />
         <Container>
-          <Card.Group centered itemsPerRow={4} items={items} />
+          <Card.Group centered itemsPerRow={3} items={items} />
         </Container>
       </div>
     );
