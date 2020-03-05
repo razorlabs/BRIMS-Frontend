@@ -1,12 +1,13 @@
 import React from 'react';
-import { graphql, Query } from 'react-apollo';
+import { graphql, Query, compose } from 'react-apollo';
 import { Dimmer, Table, Loader } from 'semantic-ui-react';
 import gql from 'graphql-tag';
 import PageMenu from '../PageMenu';
+import { GET_ALL_PATIENTS } from '../../Data/PatientQueryData';
 
 const ALL_QUERY = gql`
-  query allQuery($patient: Boolean!, $specimen: Boolean!, $aliquot: Boolean!) {
-    allPatients @skip(if: $patient) {
+  query allQuery($allPatients: Boolean!, $allSpecimen: Boolean!, $allAliquot: Boolean!) {
+    allPatients @skip(if: $allPatients) {
       id
       pid
       externalId
@@ -14,7 +15,7 @@ const ALL_QUERY = gql`
       synced
       syncDate
     },
-    allSpecimen @skip(if: $specimen) {
+    allSpecimen @skip(if: $allSpecimen) {
       id
       patientid
       type
@@ -23,7 +24,7 @@ const ALL_QUERY = gql`
       volume
       patient
     },
-    allAliquot @skip(if: $aliquot) {
+    allAliquot @skip(if: $allAliquot) {
       id
       specimenid
       visit
@@ -36,32 +37,43 @@ const ALL_QUERY = gql`
 `;
 
 
+
 class DisplayQuery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      patients: false,
+      allPatients: true,
+      allAliquot: true,
+      headeroptions: [],
+    };
+  }
   render() {
-    if (this.props.data.loading) {
+    if (this.props.loading) {
       return <Dimmer active> <Loader /> </Dimmer>;
     }
-    if (this.props.data.error) {
+    if (this.props.error) {
       return <p> Error! </p>;
     }
-    console.log(this.props.data.allSpecimen);
+    console.log(Object.keys(this.props.allPatients[0]));
     return (
       <div>
         <PageMenu />
-        <Table />
       </div>
     );
   }
 }
 
-const DisplayQueryWithData = graphql(ALL_QUERY, {
-  options: props => ({
-    variables: {
-      patient: true,
-      specimen: false,
-      aliquot: true,
-    },
+const DisplayQueryWithData = compose(
+  graphql(GET_ALL_PATIENTS, {
+      //skip: props => !props.patients,
+      props: ({ data }) => ({
+        error: data.error,
+        loading: data.loading,
+        allPatients: data.allPatients
+      }),
+
   }),
-})(DisplayQuery);
+)(DisplayQuery);
 
 export default DisplayQueryWithData;
