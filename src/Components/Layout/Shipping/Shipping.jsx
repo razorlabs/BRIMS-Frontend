@@ -47,12 +47,6 @@ class ShippingUI extends React.Component {
   }
 }
 
-/*
-          {this.props.data.allShipments.map((shipping) => {
-            return <PendingShipmentInfoRow shipping={shipping} key={shipping.id} />;
-          })}
-*/
-
 const Shipping = graphql(GET_SHIPMENTS)(ShippingUI)
 
 export default Shipping;

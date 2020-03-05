@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
 import { Checkbox, Container, Header, Modal, Table, Button, Segment, Loader, Dimmer } from 'semantic-ui-react';
 import { SHIPMENT_MANIFEST } from '../../Data/ShippingQueryData';
+import PageMenu from '../PageMenu';
 import BoxContents from './BoxContents';
 
 class ManifestUI extends React.Component {
@@ -13,9 +14,9 @@ class ManifestUI extends React.Component {
     if (this.props.data.error) {
       return <p> Error! </p>
     }
-    console.log(this.props.data.shipmentManifest);
     return (
       <div>
+        <PageMenu />
         <Container>
           <Header as="h2" attached="top">
             {this.props.data.shipmentManifest.map((box) => {
@@ -31,7 +32,7 @@ class ManifestUI extends React.Component {
 const Manifest = graphql(SHIPMENT_MANIFEST, {
   options: props => ({
     variables: {
-      shipment: 1,
+      shipment: (props.match.params.shipment),
     },
   }),
 })(ManifestUI);

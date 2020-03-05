@@ -6,6 +6,7 @@ import BoxViewWithData from './BoxView';
 import { GET_STORAGE_UI } from '../../Data/StorageQuery';
 import AddStorageModalMutation from './AddStorageModal';
 //  TODO add delete button
+// #TODO change layout to breadcrumb for simplicity
 
 const BuildAccordion = (props) => {
   /*
