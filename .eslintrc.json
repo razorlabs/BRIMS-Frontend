@@ -10,6 +10,7 @@
     "strict": 0,
     "no-unused-vars": 0,
     "react/jsx-filename-extension":    [1, { "extensions": [".js", ".jsx"] }],
-    "react/prefer-stateless-function": [1, { "ignorePureComponents": true }]
+    "react/prefer-stateless-function": [1, { "ignorePureComponents": true }],
+    "function-paren-newline": [0]
   }
 }
