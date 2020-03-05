@@ -1,34 +1,40 @@
 import gql from 'graphql-tag';
 
-export const GET_PENDING_SHIPMENTS = gql`
+export const GET_SHIPMENTS = gql`
   {
-    allPendingshipments {
+    allShipments {
       id
-      pid
-      type
-      aliquotid
-      specimenid
-      shipfrom
-      shipto
-      senddate
-      recipient
+      carrier {
+        name
+      }
+      shipmentNumber
+      destination {
+        name
+      }
+      sentDate
+      receivedDate
       notes
     }
   }
 `;
 
-export const GET_PENDING_RECEIVING = gql`
-  {
-    allPendingreceivings {
-      id
-      item
-      type
-      shipfrom
-      shipto
-      senddate
-      recipient
-      notes
-      recieved
+export const SHIPMENT_MANIFEST = gql`
+  query($shipment: Int!) {
+    shipmentManifest(shipment: $shipment) {
+      key
+      name
+      aliquot {
+        specimen {
+          patientid
+        }
+        id
+        type
+        volume
+        boxslotmodel {
+          rowPosition
+          columnPosition
+        }
+      }
     }
   }
 `;
