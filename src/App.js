@@ -18,6 +18,9 @@ import BoxViewWithData from './Components/Layout/Storage/BoxView';
 import DrawSchedulingWithData from './Components/Layout/Schedule/DrawScheduleLandingPage';
 import ExampleSearch from './Components/Layout/examples/SearchExample';
 import Patient from './Components/Layout/Patient/PatientLandingPage';
+import BarCode from './Components/Layout/Shipping/Barcode';
+import BarCodeGenerator from './Components/Layout/Shipping/BarcodeGenerator';
+import Manifest from './Components/Layout/Shipping/Manifest';
 
 
 let csrftoken;
@@ -61,10 +64,12 @@ class App extends Component {
                  javascript runners that attempt to host via root (/) */}
 
               <Switch>
-                <Route path={`${process.env.PUBLIC_URL}/lims/specimen`} exact component={SpecimenLandingPage} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/specimen/:id`} component={SpecimenPageByID} />
-                <Route path={`${process.env.PUBLIC_URL}/lims/shipping`} component={Shipping} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/specimen`} exact component={SpecimenLandingPage} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/shipping`} exact component={Shipping} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/shipping/:shipment`} component={Manifest} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/schedule`} component={DrawSchedulingWithData} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/demo`} component={BarCodeGenerator} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/query`} component={DisplayQueryWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/storage`} component={StorageWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxsetup`} component={BoxSetup} />
