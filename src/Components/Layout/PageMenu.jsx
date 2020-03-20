@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-export default class PageMenu extends React.Component {
+class PageMenu extends React.Component {
   constructor(props) {
     /* Place holder */
     super(props);
@@ -48,3 +48,4 @@ export default class PageMenu extends React.Component {
   }
 }
 
+export default PageMenu;

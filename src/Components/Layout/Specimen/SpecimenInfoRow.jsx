@@ -29,7 +29,6 @@ class SpecimenInfoRow extends React.Component {
         <Table.Cell>TBD</Table.Cell>
         {/* Volume */}
         <Table.Cell>
-          {this.props.specimen.volume}
         </Table.Cell>
         {/* storage location */}
         <Table.Cell />

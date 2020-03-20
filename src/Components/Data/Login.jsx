@@ -7,3 +7,12 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const GET_USER = gql`
+  {
+    me {
+      id
+      username
+    }
+  }
+`;

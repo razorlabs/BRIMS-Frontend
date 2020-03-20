@@ -37,7 +37,6 @@ export const GET_ALL_SPECIMEN = gql`
       type
       collectdate
       collecttime
-      volume
       patient
     }
   }
@@ -52,7 +51,6 @@ export const GET_SPECIMEN_BY_PATIENT_ID = gql`
         type
         collectdate
         collecttime
-        volume
       }
   }
 `;

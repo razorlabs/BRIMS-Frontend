@@ -9,8 +9,7 @@ import LandingPage from './Components/Layout/LandingPage';
 import SpecimenLandingPage from './Components/Layout/Specimen/SpecimenLandingPage';
 import Shipping from './Components/Layout/Shipping/Shipping';
 import DisplayQueryWithData from './Components/Layout/Query/Query';
-import ActionItems from './Components/Layout/ActionItems';
-import Authenticate from './Components/Layout/login/Auth';
+import Authenticate from './Components/Layout/Authentication/Login';
 import SpecimenPageByID from './Components/Layout/Specimen/SpecimenPageByID';
 import StorageWithData from './Components/Layout/Storage/StorageLandingPage';
 import BoxSetup from './Components/Layout/Storage/BoxSetup';
@@ -18,7 +17,6 @@ import BoxViewWithData from './Components/Layout/Storage/BoxView';
 import DrawSchedulingWithData from './Components/Layout/Schedule/DrawScheduleLandingPage';
 import ExampleSearch from './Components/Layout/examples/SearchExample';
 import Patient from './Components/Layout/Patient/PatientLandingPage';
-import BarCode from './Components/Layout/Shipping/Barcode';
 import BarCodeGenerator from './Components/Layout/Shipping/BarcodeGenerator';
 import Manifest from './Components/Layout/Shipping/Manifest';
 
@@ -74,7 +72,6 @@ class App extends Component {
                 <Route path={`${process.env.PUBLIC_URL}/lims/storage`} component={StorageWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxsetup`} component={BoxSetup} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxview`} component={BoxViewWithData} />
-                <Route path={`${process.env.PUBLIC_URL}/lims/action`} component={ActionItems} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/patient`} component={Patient} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/login`} component={Authenticate} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/search`} component={ExampleSearch} />
