@@ -19,6 +19,7 @@ import ExampleSearch from './Components/Layout/examples/SearchExample';
 import Patient from './Components/Layout/Patient/PatientLandingPage';
 import BarCodeGenerator from './Components/Layout/Shipping/BarcodeGenerator';
 import Manifest from './Components/Layout/Shipping/Manifest';
+import LogoutRedirect from './Components/Layout/Authentication/LogoutRedirect';
 
 
 let csrftoken;
@@ -74,6 +75,7 @@ class App extends Component {
                 <Route path={`${process.env.PUBLIC_URL}/lims/boxview`} component={BoxViewWithData} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/patient`} component={Patient} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/login`} component={Authenticate} />
+                <Route path={`${process.env.PUBLIC_URL}/lims/logout`} component={LogoutRedirect} />
                 <Route path={`${process.env.PUBLIC_URL}/lims/search`} component={ExampleSearch} />
                 <Route exact path={`${process.env.PUBLIC_URL}/lims`} component={LandingPage} />
               </Switch>
