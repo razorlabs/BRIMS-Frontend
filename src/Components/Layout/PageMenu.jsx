@@ -39,8 +39,8 @@ class PageMenu extends React.Component {
           />
           <Menu.Item
             name="logout"
-            active={this.state.activeItem === 'logout'}
-            onClick={this.handleActive}
+            as={Link}
+            to="/lims/logout"
           />
         </Menu.Menu>
       </Menu>
