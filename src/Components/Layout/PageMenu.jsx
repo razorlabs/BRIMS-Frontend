@@ -25,17 +25,8 @@ class PageMenu extends React.Component {
           to="/lims"
         />
         <Menu.Menu position="right">
-          <Menu.Item /* The setup icon */
-            name="cog"
-            active={this.state.activeItem === 'cog'}
-            onClick={this.handleActive}
-          >
-            <Icon name="cogs" />
-          </Menu.Item>
           <Menu.Item /* Place holder for active user name */
             name="name"
-            active={this.state.activeItem === 'name'}
-            onClick={this.handleActive}
           />
           <Menu.Item
             name="logout"
