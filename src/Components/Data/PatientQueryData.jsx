@@ -6,6 +6,7 @@ export const GET_PATIENT_BY_ID = gql`
       id
       pid
       externalId
+      source
     }
   }
 `;
