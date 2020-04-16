@@ -9,3 +9,11 @@ export const ADD_PATIENT = gql`
     }
   }
 `;
+
+export const EDIT_PATIENT = gql`
+  mutation editPatientPid($id: Int!, $pid: String!) {
+    editPid(id: id, pid: $pid) {
+      pid
+    }
+  }
+`;
