@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Input, Grid, Segment, Label, Container, Icon, List, Loader, Dimmer } from 'semantic-ui-react';
 import { graphql } from 'react-apollo';
 import { GET_PATIENT_BY_ID } from '../../Data/PatientQueryData';
+import { EDIT_PATIENT } from '../../Data/PatientMutation';
 
 class ListInputSwitch extends React.Component {
   constructor(props) {
@@ -72,34 +73,18 @@ class PatientInfoPane extends React.Component {
                       <List.Content>LIMS ID: {`${this.props.data.patient.id}`}</List.Content>
                     </List.Item>
                     <ListInputSwitch
+                      patientid={this.props.data.patient.id}
                       displayName="Patient ID"
                       displayData={this.props.data.patient.pid}
                       displayIcon="address book"
                     />
-                    <ListInputSwitch
-                      displayName="Additional ID"
-                      displayData={this.props.data.patient.externalId}
-                      displayIcon="address book outline"
-                    />
-                    <List.Item>
+                      <List.Item>
                       <List.Icon name="laptop" />
                       <List.Content>System Source: {`${this.props.data.patient.source}`}</List.Content>
                     </List.Item>
                   </List>
                 </Segment>
                 <Segment >
-                  <List>
-                    <List.Item>
-                      <List.Icon name="exclamation" />
-                      <List.Content>Next draw: Week 8</List.Content>
-                    </List.Item>
-                    <List.Item>
-                      <List.Icon name="eyedropper" />
-                      <List.Content>Blood <Icon color="blue" name="plus circle" /> </List.Content>
-                      <List.Icon name="eyedropper" />
-                      <List.Content>Urine <Icon color="blue" name="plus circle" /> </List.Content>
-                    </List.Item>
-                  </List>
                 </Segment>
               </Segment.Group>
             </Container>
