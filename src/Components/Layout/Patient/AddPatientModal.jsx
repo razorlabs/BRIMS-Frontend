@@ -11,7 +11,6 @@ class AddPatientModal extends React.Component {
     super(props);
     this.state = {
       pid: '',
-      externalid: '',
       draw: '',
       modalOpen: false,
     };
@@ -26,7 +25,6 @@ class AddPatientModal extends React.Component {
     this.props.mutate({
       variables: {
         pid: this.state.pid,
-        externalId: this.state.externalid,
         drawschedule: this.state.draw,
       },
     });
@@ -35,7 +33,7 @@ class AddPatientModal extends React.Component {
 
   render() {
     let drawlist;
-    /* TODO error out if pid/external id already exists suggest merge */
+    /* TODO error out if pid already exists suggest merge */
     if (this.props.scheduleloading) {
       drawlist = 'Loading...';
     } else {
@@ -53,10 +51,6 @@ class AddPatientModal extends React.Component {
             <Form.Field>
               <label>PID</label>
               <Form.Input placeholder="PID" name="pid" value={this.state.pid} onChange={this.handleChange} />
-            </Form.Field>
-            <Form.Field>
-              <label>External ID</label>
-              <Form.Input placeholder="External ID" name="externalid" value={this.state.externalid} onChange={this.handleChange} />
             </Form.Field>
             <Form.Field>
               <label>Draw Schedule</label>

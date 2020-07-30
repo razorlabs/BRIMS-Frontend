@@ -1,22 +1,15 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
 import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { GET_USER } from '../Data/Login';
 
-class PageMenu extends React.Component {
-  constructor(props) {
-    /* Place holder */
-    super(props);
-    this.state = {
-      activeItem: 'LIMS',
-    };
-  }
-
-  // Place holder
-  handleActive(e, { name }) {
-    this.setState({ activeItem: name });
-  }
-
+class PageMenuUI extends React.Component {
   render() {
+    console.log(this.props);
+    if (this.props.loading) {
+      return <p>User info loading....</p>;
+    }
     return (
       <Menu size="large" color="blue" inverted >
         <Menu.Item
@@ -25,18 +18,21 @@ class PageMenu extends React.Component {
           to="/lims"
         />
         <Menu.Menu position="right">
-          <Menu.Item /* Place holder for active user name */
-            name="name"
-          />
-          <Menu.Item
-            name="logout"
-            as={Link}
-            to="/lims/logout"
-          />
+          <Menu.Item name={this.props.user.username} />
+          <Menu.Item name="logout" as={Link} to="/lims/logout" />
         </Menu.Menu>
       </Menu>
     );
   }
 }
+
+const PageMenu = graphql(GET_USER, {
+  props: props => ({
+    errors: props.data.error,
+    loading: props.data.loading,
+    user: props.data.me,
+  }),
+})(PageMenuUI);
+
 
 export default PageMenu;

@@ -5,7 +5,6 @@ export const GET_PATIENT_BY_ID = gql`
     patient(id: $patientid) {
       id
       pid
-      externalId
       source
     }
   }
@@ -16,7 +15,6 @@ export const GET_ALL_PATIENTS = gql`
     allPatients {
       id
       pid
-      externalId
       source
       synced
       syncDate
